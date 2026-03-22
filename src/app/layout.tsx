@@ -24,6 +24,10 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_FULL_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  icons: {
+    icon: "/images/logo/logo.png",
+    apple: "/images/logo/logo.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

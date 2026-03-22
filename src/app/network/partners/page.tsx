@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/shared/page-hero";
-import { Section, SectionHeader } from "@/components/shared/section";
+import { Section } from "@/components/shared/section";
 import { ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -11,28 +12,40 @@ export const metadata: Metadata = {
 
 const partnerCategories = [
   {
+    title: "Civil Society, Governance & Peacekeeping",
+    partners: [
+      { name: "Social Innovation Africa (SIA)", logo: "/images/partners/sia.jpg", website: "https://siafrica.online" },
+      { name: "African Youth Initiative Network (AYINET)", logo: "/images/partners/ayinet.jpg", website: "https://ayinet.org" },
+      { name: "Horn Center for Democracy (HCD) – Ethiopia", logo: "/images/partners/horn-center.png", website: null },
+      { name: "Gender Empowerment South Sudan Organization (GESSO)", logo: "/images/partners/gesso.jpg", website: null },
+      { name: "Trust Africa", logo: "/images/partners/trustafrica.jpg", website: "https://trustafrica.org" },
+      { name: "Goree Institute", logo: "/images/partners/goree.jpg", website: null },
+    ],
+  },
+  {
     title: "International & Regional Democracy Organizations",
     partners: [
-      { name: "International IDEA", website: "https://www.idea.int" },
-      { name: "Netherlands Institute for Multiparty Democracy (NIMD)", website: "https://nimd.org" },
-      { name: "National Democratic Institute (NDI)", website: "https://www.ndi.org" },
-      { name: "Westminster Foundation for Democracy (WFD)", website: "https://www.wfd.org" },
+      { name: "Uganda Council on Foreign Relations (UCFR)", logo: "/images/partners/ucfr.jpg", website: "https://www.uga-cfr.org" },
+      { name: "National Democratic Institute (NDI)", logo: "/images/partners/ndi.jpg", website: "https://ndi.org" },
+      { name: "Oslo Center", logo: "/images/partners/oslo-center.jpg", website: "https://oslocenter.no" },
+      { name: "E-HORN", logo: "/images/partners/ehorn.png", website: "https://ehorn.org" },
+      { name: "Prospect Peace Institute Africa (PPI-A)", logo: "/images/partners/ppi-africa.png", website: "https://ppiafrica.org" },
     ],
   },
   {
-    title: "Civil Society & Governance",
+    title: "Academic & Research Institutions",
     partners: [
-      { name: "African Union", website: "https://au.int" },
-      { name: "UNDP", website: "https://www.undp.org" },
-      { name: "European Centre for Electoral Support (ECES)", website: "https://www.eces.eu" },
-      { name: "Prospect Peace Institute-Africa", website: null },
+      { name: "University of Nairobi – IDIS", logo: "/images/partners/uon.jpg", website: "https://idis.uonbi.ac.ke" },
+      { name: "West Africa Research Center (WARC) – Senegal", logo: "/images/partners/warc.png", website: "http://warccroa.org" },
+      { name: "Malawi University of Science and Technology (MUST)", logo: "/images/partners/must.png", website: "https://must.ac.mw" },
+      { name: "Centre for Democratic Development (CDD–Ghana)", logo: "/images/partners/cdd-ghana.png", website: "https://cddgh.org" },
     ],
   },
   {
-    title: "Academic Institutions",
+    title: "Inter-Party Dialogue & Political Platforms",
     partners: [
-      { name: "Institute for Peace and Security Studies", website: null },
-      { name: "University of Nairobi", website: null },
+      { name: "Inter-Party Organization for Dialogue (IPOD) – Uganda", logo: "/images/partners/ipod-uganda.png", website: "https://www.ipoduganda.org" },
+      { name: "Ethiopia Political Parties Joint Council (EPPJC)", logo: "/images/partners/eppjc.png", website: "https://nebe.org.et/en/pps-joint-council" },
     ],
   },
 ];
@@ -54,14 +67,20 @@ export default function PartnersPage() {
           <h2 className="font-heading text-2xl font-bold text-foreground">
             {category.title}
           </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {category.partners.map((partner) => (
               <div
                 key={partner.name}
                 className="flex flex-col items-center rounded-2xl border border-border bg-background p-6 text-center transition-all hover:border-green-200 hover:shadow-lg"
               >
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-green-100 text-green-700 font-heading font-bold text-2xl">
-                  {partner.name.charAt(0)}
+                <div className="relative flex h-24 w-full items-center justify-center">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={140}
+                    height={80}
+                    className="h-16 w-auto object-contain"
+                  />
                 </div>
                 <h3 className="mt-4 font-heading text-sm font-bold text-foreground">
                   {partner.name}

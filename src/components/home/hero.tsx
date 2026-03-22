@@ -1,28 +1,66 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Play } from "lucide-react";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const slides = [
+  {
+    image: "/images/slider/slide-1.jpg",
+    title: "West Africa Diplomacy, Negotiation and Mediation Training",
+    description:
+      "Programme Diplomacy, Negotiation and Mediation Training — 26th-30th January 2026, Dakar, Senegal",
+    link: "/events",
+  },
+  {
+    image: "/images/slider/slide-2.jpg",
+    title:
+      "Rethinking Inter-Party Dialogue in Africa",
+    description:
+      "Key insights from the AIPDN Regional Roundtable convened in Nairobi with over 50 delegates from across Africa.",
+    link: "/news",
+  },
+];
 
 export function Hero() {
-  return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-green-900 via-green-800 to-teal-700 py-24 md:py-32 lg:py-40">
-      {/* Decorative elements */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "48px 48px",
-          }}
-        />
-        <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full bg-teal-500/20 blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 h-[400px] w-[400px] rounded-full bg-green-500/20 blur-3xl" />
-      </div>
+  const [current, setCurrent] = useState(0);
 
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="max-w-3xl">
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const slide = slides[current];
+
+  return (
+    <section className="relative overflow-hidden bg-green-900 h-[600px] md:h-[700px]">
+      {/* Slide images */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={slide.image}
+            alt={slide.title}
+            fill
+            className="object-cover"
+            priority={current === 0}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 via-green-900/70 to-green-900/40" />
+        </motion.div>
+      </AnimatePresence>
+
+      <div className="relative mx-auto flex h-full max-w-7xl items-center px-6">
+        <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -34,38 +72,34 @@ export function Hero() {
             </span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-8 font-heading text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            Building Bridges Through{" "}
-            <span className="text-teal-300">Political Dialogue</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-white/80 md:text-xl"
-          >
-            The African Inter-Party Dialogue Network facilitates structured,
-            inclusive dialogue among political parties to promote peace, strengthen
-            democracy, and foster inclusive governance across the continent.
-          </motion.p>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="mt-6 font-heading text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                {slide.title}
+              </h1>
+              <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
+                {slide.description}
+              </p>
+            </motion.div>
+          </AnimatePresence>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
+            className="mt-8 flex flex-col gap-4 sm:flex-row"
           >
             <Link
-              href="/what-we-do"
+              href={slide.link}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-green-800 shadow-lg transition-all hover:bg-green-50 hover:shadow-xl"
             >
-              Explore Our Work
+              Read More
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
@@ -76,28 +110,57 @@ export function Hero() {
             </Link>
           </motion.div>
         </div>
+      </div>
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-20 grid grid-cols-2 gap-8 border-t border-white/10 pt-10 md:grid-cols-4"
+      {/* Slide controls */}
+      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-4">
+        <button
+          onClick={() =>
+            setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
+          }
+          className="rounded-full bg-white/10 p-2 text-white backdrop-blur-sm hover:bg-white/20 transition-colors"
+          aria-label="Previous slide"
         >
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <div className="flex gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`h-2.5 rounded-full transition-all ${
+                i === current ? "w-8 bg-white" : "w-2.5 bg-white/40"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+        <button
+          onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
+          className="rounded-full bg-white/10 p-2 text-white backdrop-blur-sm hover:bg-white/20 transition-colors"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="h-5 w-5" />
+        </button>
+      </div>
+
+      {/* Stats bar */}
+      <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-green-900/80 backdrop-blur-sm">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-6 py-5 md:grid-cols-4">
           {[
             { value: "30+", label: "African Countries" },
             { value: "100+", label: "Political Parties" },
             { value: "50+", label: "Dialogues Facilitated" },
             { value: "15+", label: "Years of Impact" },
           ].map((stat) => (
-            <div key={stat.label}>
-              <div className="font-heading text-3xl font-bold text-white md:text-4xl">
+            <div key={stat.label} className="text-center">
+              <div className="font-heading text-2xl font-bold text-white">
                 {stat.value}
               </div>
-              <div className="mt-1 text-sm text-white/60">{stat.label}</div>
+              <div className="text-xs text-white/60">{stat.label}</div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

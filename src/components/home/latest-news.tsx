@@ -1,42 +1,42 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import { Section, SectionHeader } from "@/components/shared/section";
 import { formatDate } from "@/lib/utils";
 
-// Placeholder data — will be replaced by Supabase queries
-const PLACEHOLDER_NEWS = [
+const NEWS_ARTICLES = [
   {
     id: "1",
-    title: "MOU Between IPS and AIPDN Strengthens Regional Cooperation",
+    title: "MOU Between IPS and AIPDN",
     excerpt:
       "A landmark memorandum of understanding was signed to advance inter-party dialogue frameworks across the continent.",
-    category: "Partnership",
-    published_at: "2026-02-15",
+    category: "News",
+    published_at: "2026-02-18",
     slug: "mou-ips-aipdn",
-    image_url: null,
+    image: "/images/news/mou-ips.jpg",
   },
   {
     id: "2",
-    title: "Rethinking Inter-Party Dialogue: West Africa Regional Roundtable",
+    title: "Rethinking Inter-Party Dialogue in Africa: Key Insights from the AIPDN Regional Roundtable",
     excerpt:
-      "Political leaders from across West Africa convened to discuss new approaches to cross-party engagement.",
-    category: "Events",
-    published_at: "2025-12-10",
-    slug: "west-africa-roundtable",
-    image_url: null,
+      "The AIPDN convened a major regional roundtable in Nairobi, assembling over 50 delegates from political organizations, civil society groups, and academic institutions.",
+    category: "News",
+    published_at: "2025-12-19",
+    slug: "rethinking-inter-party-dialogue",
+    image: "/images/news/roundtable-2025.jpg",
   },
   {
     id: "3",
-    title: "PPI-Africa Strategic Partnership Agreement Signed",
+    title: "PPI-Africa and AIPDN Strengthen Strategic Partnership With Institutional Agreement",
     excerpt:
       "Prospect Peace Institute-Africa and AIPDN formalize their collaborative framework for advancing democratic dialogue.",
     category: "News",
-    published_at: "2025-11-20",
+    published_at: "2025-11-21",
     slug: "ppi-africa-partnership",
-    image_url: null,
+    image: "/images/news/ppi-partnership.png",
   },
 ];
 
@@ -49,7 +49,7 @@ export function LatestNews() {
         description="Stay updated on our latest initiatives, partnerships, and events shaping inter-party dialogue across Africa."
       />
       <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {PLACEHOLDER_NEWS.map((article, i) => (
+        {NEWS_ARTICLES.map((article, i) => (
           <motion.article
             key={article.id}
             initial={{ opacity: 0, y: 20 }}
@@ -62,11 +62,13 @@ export function LatestNews() {
               href={`/news/${article.slug}`}
               className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-background transition-all hover:border-green-200 hover:shadow-lg"
             >
-              {/* Image placeholder */}
-              <div className="aspect-[16/10] bg-gradient-to-br from-green-100 to-teal-50 flex items-center justify-center">
-                <span className="text-4xl text-green-200 font-heading font-bold">
-                  AIPDN
-                </span>
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={article.image}
+                  alt={article.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center gap-3">

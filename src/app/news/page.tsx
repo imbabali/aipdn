@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
 import { Calendar, ArrowRight } from "lucide-react";
@@ -11,71 +12,44 @@ export const metadata: Metadata = {
     "Latest news, articles, and insights from the African Inter-Party Dialogue Network.",
 };
 
-const PLACEHOLDER_ARTICLES = [
+const ARTICLES = [
   {
     id: "1",
-    title: "MOU Between IPS and AIPDN Strengthens Regional Cooperation",
+    title: "MOU Between IPS and AIPDN",
     excerpt:
-      "A landmark memorandum of understanding was signed to advance inter-party dialogue frameworks across the continent, marking a new era of collaboration.",
-    category: "Partnership",
-    author: "AIPDN Communications",
-    published_at: "2026-02-15",
+      "A landmark memorandum of understanding was signed to advance inter-party dialogue frameworks across the continent, marking a new era of collaboration between the two institutions.",
+    category: "News",
+    author: "AIPDN Editor",
+    published_at: "2026-02-18",
     slug: "mou-ips-aipdn",
+    image: "/images/news/mou-ips.jpg",
   },
   {
     id: "2",
-    title: "Rethinking Inter-Party Dialogue: West Africa Regional Roundtable",
+    title: "Rethinking Inter-Party Dialogue in Africa: Key Insights from the AIPDN Regional Roundtable",
     excerpt:
-      "Political leaders from across West Africa convened to discuss new approaches to cross-party engagement and consensus building.",
-    category: "Events",
-    author: "AIPDN Communications",
-    published_at: "2025-12-10",
-    slug: "west-africa-roundtable",
+      "The African Inter-Party Dialogue Network (AIPDN) convened a major regional roundtable in Nairobi, assembling over 50 delegates from political organizations, civil society groups, academic institutions, and policy bodies across Eastern, Western, and Southern Africa.",
+    category: "News",
+    author: "AIPDN Editor",
+    published_at: "2025-12-19",
+    slug: "rethinking-inter-party-dialogue",
+    image: "/images/news/roundtable-2025.jpg",
   },
   {
     id: "3",
-    title: "PPI-Africa Strategic Partnership Agreement Signed",
+    title: "PPI-Africa and AIPDN Strengthen Strategic Partnership With Institutional Agreement",
     excerpt:
-      "Prospect Peace Institute-Africa and AIPDN formalize their collaborative framework for advancing democratic dialogue across the continent.",
+      "Prospect Peace Institute-Africa and AIPDN formalize their collaborative framework for advancing democratic dialogue across the continent, with PPI-Africa officially designated as host of the AIPDN Secretariat.",
     category: "News",
-    author: "AIPDN Communications",
-    published_at: "2025-11-20",
+    author: "AIPDN Editor",
+    published_at: "2025-11-21",
     slug: "ppi-africa-partnership",
-  },
-  {
-    id: "4",
-    title: "Youth Engagement in Political Dialogue: Lessons from East Africa",
-    excerpt:
-      "A new report examines successful models for integrating young political leaders into inter-party dialogue processes.",
-    category: "Research",
-    author: "AIPDN Research Team",
-    published_at: "2025-09-15",
-    slug: "youth-engagement-east-africa",
-  },
-  {
-    id: "5",
-    title: "AIPDN Launches Women in Dialogue Initiative",
-    excerpt:
-      "A dedicated programme to increase the participation and leadership of women in inter-party dialogue processes across Africa.",
-    category: "Programmes",
-    author: "AIPDN Communications",
-    published_at: "2025-07-20",
-    slug: "women-in-dialogue-initiative",
-  },
-  {
-    id: "6",
-    title: "Continental Dialogue Forum 2025: Key Takeaways",
-    excerpt:
-      "Highlights and key outcomes from the annual continental forum that brought together political leaders from 30+ African countries.",
-    category: "Events",
-    author: "AIPDN Communications",
-    published_at: "2025-05-30",
-    slug: "continental-forum-2025",
+    image: "/images/news/ppi-partnership.png",
   },
 ];
 
 export default function NewsPage() {
-  const [featured, ...rest] = PLACEHOLDER_ARTICLES;
+  const [featured, ...rest] = ARTICLES;
 
   return (
     <>
@@ -89,14 +63,17 @@ export default function NewsPage() {
         {/* Featured article */}
         <Link
           href={`/news/${featured.slug}`}
-          className="group mb-16 flex flex-col gap-8 rounded-2xl border border-border bg-background p-8 transition-all hover:border-green-200 hover:shadow-lg md:flex-row"
+          className="group mb-16 flex flex-col gap-8 rounded-2xl border border-border bg-background overflow-hidden transition-all hover:border-green-200 hover:shadow-lg md:flex-row"
         >
-          <div className="aspect-[16/10] flex-1 rounded-xl bg-gradient-to-br from-green-100 to-teal-50 flex items-center justify-center">
-            <span className="text-5xl text-green-200 font-heading font-bold">
-              AIPDN
-            </span>
+          <div className="relative aspect-[16/10] md:aspect-auto md:w-1/2 overflow-hidden">
+            <Image
+              src={featured.image}
+              alt={featured.title}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
           </div>
-          <div className="flex flex-1 flex-col justify-center">
+          <div className="flex flex-1 flex-col justify-center p-8">
             <div className="flex items-center gap-3">
               <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
                 {featured.category}
@@ -120,17 +97,20 @@ export default function NewsPage() {
         </Link>
 
         {/* Article grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2">
           {rest.map((article) => (
             <Link
               key={article.id}
               href={`/news/${article.slug}`}
               className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background transition-all hover:border-green-200 hover:shadow-lg"
             >
-              <div className="aspect-[16/10] bg-gradient-to-br from-green-100 to-teal-50 flex items-center justify-center">
-                <span className="text-3xl text-green-200 font-heading font-bold">
-                  AIPDN
-                </span>
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={article.image}
+                  alt={article.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center gap-3">
@@ -147,6 +127,10 @@ export default function NewsPage() {
                 <p className="mt-2 flex-1 text-sm text-muted-foreground line-clamp-3">
                   {article.excerpt}
                 </p>
+                <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-green-700">
+                  Read more
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </div>
               </div>
             </Link>
           ))}

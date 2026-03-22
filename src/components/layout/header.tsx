@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, Mail, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -13,7 +14,7 @@ export function Header() {
   const pathname = usePathname();
 
   const isActive = (href: string) =>
-    pathname === href || pathname.startsWith(href + "/");
+    pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
 
   return (
     <header className="sticky top-0 z-50 w-full">
@@ -58,12 +59,17 @@ export function Header() {
         className="border-b border-border bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80"
         aria-label="Main navigation"
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-700 text-white font-heading font-bold text-lg">
-              A
-            </div>
+            <Image
+              src="/images/logo/logo.png"
+              alt="AIPDN Logo"
+              width={44}
+              height={44}
+              className="h-11 w-auto"
+              priority
+            />
             <div>
               <span className="block text-lg font-heading font-bold text-foreground leading-tight">
                 AIPDN

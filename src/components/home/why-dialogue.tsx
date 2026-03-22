@@ -30,11 +30,15 @@ export function WhyDialogue() {
             Inter-Party Dialogue Is the Foundation of African Democracy
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-            Across the continent, political dialogue is often ad hoc and
-            underutilized. AIPDN works to change that by making structured
-            dialogue a permanent feature of Africa&apos;s democratic
-            architecture&mdash;not just a crisis response tool, but a proactive
-            mechanism for building consensus and shared governance.
+            Inter-party dialogue strengthens democracy, promotes peace, and
+            fosters inclusive governance in Africa. Beyond elections, it helps
+            political parties engage constructively, build consensus, and reduce
+            conflict. Despite its importance, dialogue is often ad hoc and
+            underutilized. AIPDN supports structured, inclusive, and sustainable
+            dialogue through research, policy guidance, facilitation, and
+            capacity-building&mdash;helping political parties contribute to
+            stronger institutions, national cohesion, and resilient societies
+            across the continent.
           </p>
         </motion.div>
 

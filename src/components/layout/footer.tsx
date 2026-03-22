@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import {
   SITE_FULL_NAME,
@@ -84,9 +85,13 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 font-heading font-bold text-lg">
-                A
-              </div>
+              <Image
+                src="/images/logo/logo-light.jpg"
+                alt="AIPDN Logo"
+                width={44}
+                height={44}
+                className="h-11 w-auto rounded-lg"
+              />
               <span className="font-heading text-lg font-bold">AIPDN</span>
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
