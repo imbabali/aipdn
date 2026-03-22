@@ -1,5 +1,5 @@
 import { Hero } from "@/components/home/hero";
-import { Pillars } from "@/components/home/pillars";
+import { PillarsCarousel } from "@/components/home/pillars-carousel";
 import { WhyDialogue } from "@/components/home/why-dialogue";
 import { LatestNews } from "@/components/home/latest-news";
 import { PartnersStrip } from "@/components/home/partners-strip";
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Pillars />
+      <PillarsCarousel />
       <WhyDialogue />
       <LatestNews />
       <PartnersStrip />

@@ -57,7 +57,7 @@ export default function PartnersPage() {
         title="Our Partners"
         description="We collaborate with leading international and regional organizations committed to advancing democracy in Africa."
         backgroundImage="/images/gallery/AIPDN-PARTNERSHIP-4.jpg"
-        imagePosition="center 45%"
+        imagePosition="center 55%"
         breadcrumbs={[
           { label: "Our Network", href: "/network" },
           { label: "Partners" },

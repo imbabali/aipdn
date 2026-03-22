@@ -16,7 +16,7 @@ export default function MembersPage() {
         title="Member Organizations"
         description="Political parties and civil society organizations that form the backbone of the AIPDN network."
         backgroundImage="/images/gallery/AIPDN-PARTNERSHIP-1.jpg"
-        imagePosition="center 30%"
+        imagePosition="center 20%"
         breadcrumbs={[
           { label: "Our Network", href: "/network" },
           { label: "Members" },

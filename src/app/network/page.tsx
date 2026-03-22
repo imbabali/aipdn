@@ -17,7 +17,7 @@ export default function NetworkPage() {
         title="Our Network"
         description="A continent-wide network of partners, political parties, and civil society organizations committed to democratic dialogue."
         backgroundImage="/images/gallery/AIPDN-PARTNERSHIP-1.jpg"
-        imagePosition="center 30%"
+        imagePosition="center 20%"
         breadcrumbs={[{ label: "Our Network" }]}
       />
 

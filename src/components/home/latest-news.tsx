@@ -17,7 +17,7 @@ const NEWS_ARTICLES = [
     published_at: "2026-02-18",
     slug: "mou-ips-aipdn",
     image: "/images/news/mou-ips.jpg",
-    imagePosition: "center",
+    imagePosition: "center 35%",
   },
   {
     id: "2",

@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  MessageCircle,
-  GraduationCap,
-  BookOpen,
-  Handshake,
-  Globe,
-  ArrowRight,
-} from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
 import { PILLARS } from "@/lib/constants";
@@ -18,12 +12,27 @@ export const metadata: Metadata = {
     "Discover AIPDN's five pillars of impact: dialogue facilitation, training, research, partnerships, and regional convening.",
 };
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  MessageCircle,
-  GraduationCap,
-  BookOpen,
-  Handshake,
-  Globe,
+const pillarImages: Record<string, { src: string; position: string }> = {
+  "dialogue-facilitation": {
+    src: "/images/gallery/Img-229.jpg",
+    position: "center 35%",
+  },
+  training: {
+    src: "/images/gallery/Img-185.jpg",
+    position: "center 25%",
+  },
+  research: {
+    src: "/images/gallery/Img-134.jpg",
+    position: "center 30%",
+  },
+  partnerships: {
+    src: "/images/gallery/AIPDN-PARTNERSHIP-4.jpg",
+    position: "center 40%",
+  },
+  "regional-convening": {
+    src: "/images/gallery/Img-250.jpg",
+    position: "center 35%",
+  },
 };
 
 export default function WhatWeDoPage() {
@@ -38,25 +47,22 @@ export default function WhatWeDoPage() {
       />
 
       <Section>
-        <div className="space-y-16">
+        <div className="space-y-16 sm:space-y-20">
           {PILLARS.map((pillar, i) => {
-            const Icon = iconMap[pillar.icon];
             const isEven = i % 2 === 0;
+            const image = pillarImages[pillar.slug];
             return (
               <div
                 key={pillar.slug}
-                className={`flex flex-col gap-8 lg:flex-row lg:items-center ${
+                className={`flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-center lg:gap-12 ${
                   !isEven ? "lg:flex-row-reverse" : ""
                 }`}
               >
                 <div className="flex-1">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 text-green-700">
-                    {Icon && <Icon className="h-7 w-7" />}
-                  </div>
-                  <h2 className="mt-5 font-heading text-2xl font-bold text-foreground sm:text-3xl">
+                  <h2 className="font-heading text-2xl font-bold text-foreground sm:text-3xl">
                     {pillar.title}
                   </h2>
-                  <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                  <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted-foreground">
                     {pillar.description}
                   </p>
                   <Link
@@ -68,8 +74,17 @@ export default function WhatWeDoPage() {
                   </Link>
                 </div>
                 <div className="flex-1">
-                  <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-green-100 to-teal-50 flex items-center justify-center">
-                    {Icon && <Icon className="h-20 w-20 text-green-200" />}
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                    {image && (
+                      <Image
+                        src={image.src}
+                        alt={pillar.title}
+                        fill
+                        className="object-cover"
+                        style={{ objectPosition: image.position }}
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                    )}
                   </div>
                 </div>
               </div>
