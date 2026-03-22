@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { DonateBanner } from "@/components/layout/donate-banner";
 import { WhatsAppBubble } from "@/components/whatsapp-bubble";
 import { SITE_FULL_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 import "./globals.css";
@@ -66,6 +67,7 @@ export default function RootLayout({
         <main id="main-content" className="flex-1">
           {children}
         </main>
+        <DonateBanner />
         <Footer />
         <WhatsAppBubble />
       </body>

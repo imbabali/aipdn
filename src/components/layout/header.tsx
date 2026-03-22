@@ -139,7 +139,7 @@ export function Header() {
           <div className="flex items-center gap-2 sm:gap-3">
             <Link
               href="/donate"
-              className="hidden rounded-full border border-green-200 bg-green-50 px-4 py-2.5 text-sm font-semibold text-green-700 transition-all hover:bg-green-100 sm:block"
+              className="rounded-full border border-green-200 bg-green-50 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-green-700 transition-all hover:bg-green-100"
             >
               Donate
             </Link>
