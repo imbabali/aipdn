@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/get-involved/join",
     "/get-involved/newsletter",
     "/get-involved/contact",
+    "/donate",
   ];
 
   const pillarPages = PILLARS.map((pillar) => `/what-we-do/${pillar.slug}`);

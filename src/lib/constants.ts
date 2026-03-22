@@ -8,6 +8,7 @@ export const CONTACT = {
   email: "info@aipdn.org",
   phone: "+254 741 694 575",
   address: "Woodlands Office Park, Hurlingham, Nairobi, Kenya",
+  mpesa: "0741694575",
 } as const;
 
 export const SOCIAL_LINKS = {

@@ -136,10 +136,16 @@ export function Header() {
           </div>
 
           {/* CTA + Mobile toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <Link
+              href="/donate"
+              className="hidden rounded-full border border-green-200 bg-green-50 px-4 py-2.5 text-sm font-semibold text-green-700 transition-all hover:bg-green-100 sm:block"
+            >
+              Donate
+            </Link>
             <Link
               href="/get-involved/contact"
-              className="hidden rounded-full bg-green-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-green-800 hover:shadow-md sm:block"
+              className="hidden rounded-full bg-green-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-green-800 hover:shadow-md md:block"
             >
               Get in Touch
             </Link>
@@ -221,7 +227,14 @@ export function Header() {
                 );
               })}
             </div>
-            <div className="mt-4 pt-4 border-t border-border">
+            <div className="mt-4 pt-4 border-t border-border flex flex-col gap-3">
+              <Link
+                href="/donate"
+                onClick={() => setMobileOpen(false)}
+                className="block w-full rounded-full border border-green-200 bg-green-50 px-5 py-2.5 text-center text-sm font-semibold text-green-700"
+              >
+                Donate
+              </Link>
               <Link
                 href="/get-involved/contact"
                 onClick={() => setMobileOpen(false)}
