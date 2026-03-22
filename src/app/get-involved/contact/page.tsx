@@ -25,7 +25,7 @@ export default function ContactPage() {
         title="Contact Us"
         description="Have a question or want to discuss partnership opportunities? We'd love to hear from you."
         backgroundImage="/images/gallery/Img-234.jpg"
-        imagePosition="center 20%"
+        imagePosition="center 30%"
         breadcrumbs={[
           { label: "Get Involved", href: "/get-involved" },
           { label: "Contact Us" },

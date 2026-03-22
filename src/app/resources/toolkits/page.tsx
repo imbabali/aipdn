@@ -37,7 +37,7 @@ export default function ToolkitsPage() {
         title="Toolkits & Guides"
         description="Practical resources for practitioners working to advance inter-party dialogue and democratic governance."
         backgroundImage="/images/gallery/Img-168.jpg"
-        imagePosition="center 35%"
+        imagePosition="center 25%"
         breadcrumbs={[
           { label: "Resources", href: "/resources" },
           { label: "Toolkits & Guides" },

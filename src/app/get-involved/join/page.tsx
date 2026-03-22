@@ -26,7 +26,7 @@ export default function JoinPage() {
         title="Join the Network"
         description="Become part of Africa's leading platform for inter-party dialogue and democratic engagement."
         backgroundImage="/images/gallery/Img-262.jpg"
-        imagePosition="center 25%"
+        imagePosition="center 20%"
         breadcrumbs={[
           { label: "Get Involved", href: "/get-involved" },
           { label: "Join the Network" },

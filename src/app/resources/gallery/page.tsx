@@ -16,7 +16,7 @@ export default function GalleryPage() {
         title="Media Gallery"
         description="Photos from our events, dialogues, training sessions, and activities across the continent."
         backgroundImage="/images/gallery/Img-274.jpg"
-        imagePosition="center 25%"
+        imagePosition="center 20%"
         breadcrumbs={[
           { label: "Resources", href: "/resources" },
           { label: "Media Gallery" },

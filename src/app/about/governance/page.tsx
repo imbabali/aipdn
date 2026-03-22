@@ -43,7 +43,7 @@ export default function GovernancePage() {
         title="Governance"
         description="The structures and principles that guide our work across the continent."
         backgroundImage="/images/gallery/Img-116.jpg"
-        imagePosition="center 30%"
+        imagePosition="center 40%"
         breadcrumbs={[
           { label: "About", href: "/about" },
           { label: "Governance" },

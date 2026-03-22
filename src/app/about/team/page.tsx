@@ -54,7 +54,7 @@ export default function TeamPage() {
         title="Our Team"
         description="A dedicated team of professionals committed to advancing inter-party dialogue and democratic governance in Africa."
         backgroundImage="/images/gallery/Img-194.jpg"
-        imagePosition="center 25%"
+        imagePosition="center 30%"
         breadcrumbs={[
           { label: "About", href: "/about" },
           { label: "Our Team" },
