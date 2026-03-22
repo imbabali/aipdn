@@ -25,7 +25,7 @@ export default function NetworkPage() {
         <div className="grid gap-8 md:grid-cols-2">
           <Link
             href="/network/partners"
-            className="group flex flex-col rounded-2xl border border-border bg-background p-10 transition-all hover:border-green-200 hover:shadow-lg"
+            className="group flex flex-col rounded-2xl border border-border bg-background p-6 sm:p-8 md:p-10 transition-all hover:border-green-200 hover:shadow-lg"
           >
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-green-100 text-green-700 transition-colors group-hover:bg-green-700 group-hover:text-white">
               <Handshake className="h-8 w-8" />
@@ -46,7 +46,7 @@ export default function NetworkPage() {
 
           <Link
             href="/network/members"
-            className="group flex flex-col rounded-2xl border border-border bg-background p-10 transition-all hover:border-green-200 hover:shadow-lg"
+            className="group flex flex-col rounded-2xl border border-border bg-background p-6 sm:p-8 md:p-10 transition-all hover:border-green-200 hover:shadow-lg"
           >
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-teal-100 text-teal-700 transition-colors group-hover:bg-teal-600 group-hover:text-white">
               <Users className="h-8 w-8" />

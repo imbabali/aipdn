@@ -9,7 +9,7 @@ interface SectionProps {
 export function Section({ children, className, id }: SectionProps) {
   return (
     <section id={id} className={cn("py-16 md:py-24", className)}>
-      <div className="mx-auto max-w-7xl px-6">{children}</div>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">{children}</div>
     </section>
   );
 }
@@ -51,7 +51,7 @@ export function SectionHeader({
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+        <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted-foreground">
           {description}
         </p>
       )}

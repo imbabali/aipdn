@@ -54,7 +54,7 @@ export default function ResourcesPage() {
             <Link
               key={section.title}
               href={section.href}
-              className="group flex flex-col rounded-2xl border border-border bg-background p-8 transition-all hover:border-green-200 hover:shadow-lg"
+              className="group flex flex-col rounded-2xl border border-border bg-background p-5 sm:p-8 transition-all hover:border-green-200 hover:shadow-lg"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100 text-green-700 transition-colors group-hover:bg-green-700 group-hover:text-white">
                 <section.icon className="h-7 w-7" />

@@ -34,7 +34,7 @@ export default function JoinPage() {
       />
 
       <Section>
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-2">
           <div>
             <h2 className="font-heading text-2xl font-bold text-foreground">
               Membership Benefits

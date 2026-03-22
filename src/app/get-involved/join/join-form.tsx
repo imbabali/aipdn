@@ -35,7 +35,7 @@ export function JoinForm() {
           id="org-type"
           name="org-type"
           required
-          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
+          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-base sm:text-sm text-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
         >
           <option value="">Select type</option>
           <option value="political-party">Political Party</option>
@@ -57,7 +57,7 @@ export function JoinForm() {
             name="contact-name"
             required
             autoComplete="name"
-            className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-sm placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
+            className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-base sm:text-sm placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
             placeholder="Full name"
           />
         </div>
@@ -71,7 +71,7 @@ export function JoinForm() {
             name="email"
             required
             autoComplete="email"
-            className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-sm placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
+            className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-base sm:text-sm placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
             placeholder="you@org.com"
           />
         </div>

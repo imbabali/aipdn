@@ -18,7 +18,7 @@ export function WhatsAppBubble() {
       {/* Tooltip */}
       {tooltip && (
         <div className="relative mb-2 hidden sm:block animate-in fade-in slide-in-from-right-4 duration-500">
-          <div className="rounded-2xl rounded-br-sm bg-white px-4 py-3 shadow-lg border border-green-100 max-w-[220px]">
+          <div className="rounded-2xl rounded-br-sm bg-white px-4 py-3 shadow-lg border border-green-100 max-w-[180px] sm:max-w-[220px]">
             <button
               onClick={() => setTooltip(false)}
               className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-neutral-200 text-neutral-500 hover:bg-neutral-300 transition-colors"

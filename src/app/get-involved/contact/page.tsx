@@ -33,7 +33,7 @@ export default function ContactPage() {
       />
 
       <Section>
-        <div className="grid gap-12 lg:grid-cols-5">
+        <div className="grid gap-8 lg:gap-12 lg:grid-cols-5">
           <div className="lg:col-span-3">
             <h2 className="font-heading text-2xl font-bold text-foreground">
               Send Us a Message

@@ -42,7 +42,7 @@ export function Pillars() {
             >
               <Link
                 href={`/what-we-do/${pillar.slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-border bg-background p-8 transition-all hover:border-green-200 hover:shadow-lg hover:shadow-green-500/5"
+                className="group flex h-full flex-col rounded-2xl border border-border bg-background p-5 sm:p-8 transition-all hover:border-green-200 hover:shadow-lg hover:shadow-green-500/5"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-green-700 transition-colors group-hover:bg-green-700 group-hover:text-white">
                   {Icon && <Icon className="h-6 w-6" />}

@@ -69,7 +69,7 @@ export default function PartnersPage() {
           <h2 className="font-heading text-2xl font-bold text-foreground">
             {category.title}
           </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {category.partners.map((partner) => (
               <div
                 key={partner.name}

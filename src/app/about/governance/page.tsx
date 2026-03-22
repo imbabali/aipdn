@@ -55,7 +55,7 @@ export default function GovernancePage() {
           {governanceAreas.map((area) => (
             <div
               key={area.title}
-              className="rounded-2xl border border-border bg-background p-8 transition-all hover:border-green-200 hover:shadow-lg"
+              className="rounded-2xl border border-border bg-background p-5 sm:p-8 transition-all hover:border-green-200 hover:shadow-lg"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-green-700">
                 <area.icon className="h-6 w-6" />

@@ -66,12 +66,12 @@ export default function TeamPage() {
           {TEAM.map((member, i) => (
             <div
               key={member.name}
-              className={`flex flex-col gap-8 rounded-2xl border border-border bg-background p-8 transition-all hover:border-green-200 hover:shadow-lg md:flex-row ${
+              className={`flex flex-col gap-6 sm:gap-8 rounded-2xl border border-border bg-background p-5 sm:p-8 transition-all hover:border-green-200 hover:shadow-lg md:flex-row ${
                 i % 2 !== 0 ? "md:flex-row-reverse" : ""
               }`}
             >
               <div className="shrink-0">
-                <div className="relative h-72 w-64 overflow-hidden rounded-2xl mx-auto md:mx-0">
+                <div className="relative h-52 w-48 sm:h-64 sm:w-56 md:h-72 md:w-64 overflow-hidden rounded-2xl mx-auto md:mx-0">
                   <Image
                     src={member.image}
                     alt={member.name}

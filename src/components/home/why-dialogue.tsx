@@ -16,7 +16,7 @@ const reasons = [
 export function WhyDialogue() {
   return (
     <Section className="bg-muted">
-      <div className="grid items-center gap-12 lg:grid-cols-2">
+      <div className="grid items-center gap-8 lg:gap-12 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -29,7 +29,7 @@ export function WhyDialogue() {
           <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Inter-Party Dialogue Is the Foundation of African Democracy
           </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-relaxed text-muted-foreground">
             Inter-party dialogue strengthens democracy, promotes peace, and
             fosters inclusive governance in Africa. Beyond elections, it helps
             political parties engage constructively, build consensus, and reduce

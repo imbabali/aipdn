@@ -59,7 +59,7 @@ export function Footer() {
             <form
               action="/get-involved/newsletter"
               method="get"
-              className="flex w-full max-w-md gap-3 md:w-auto"
+              className="flex w-full max-w-md flex-col sm:flex-row gap-3 md:w-auto"
             >
               <label htmlFor="footer-email" className="sr-only">
                 Email address
@@ -87,7 +87,7 @@ export function Footer() {
 
       {/* Main footer */}
       <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-8 sm:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3">
@@ -158,7 +158,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-6 py-6 text-xs text-white/50 sm:flex-row sm:justify-between">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 sm:px-6 py-6 text-xs text-white/50 sm:flex-row sm:justify-between">
           <p>&copy; {currentYear} {SITE_FULL_NAME}. All rights reserved.</p>
           <div className="flex items-center gap-6">
             {Object.entries(SOCIAL_LINKS).map(([platform, url]) => (

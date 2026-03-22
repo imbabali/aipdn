@@ -132,7 +132,7 @@ export function GalleryGrid() {
               }}
               aria-label={`Page ${i + 1}`}
               aria-current={page === i ? "page" : undefined}
-              className={`h-10 w-10 rounded-full text-sm font-medium transition-colors ${
+              className={`h-11 w-11 sm:h-10 sm:w-10 rounded-full text-sm font-medium transition-colors ${
                 page === i
                   ? "bg-green-700 text-white"
                   : "bg-neutral-100 text-neutral-600 hover:bg-green-50 hover:text-green-700"
@@ -154,7 +154,7 @@ export function GalleryGrid() {
         >
           <button
             onClick={() => setLightbox(null)}
-            className="absolute top-4 right-4 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white"
+            className="absolute top-4 right-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Close photo viewer"
           >
             <X className="h-6 w-6" />
@@ -165,7 +165,7 @@ export function GalleryGrid() {
                 (lightbox - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length
               )
             }
-            className="absolute left-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white"
+            className="absolute left-2 sm:left-4 rounded-full bg-white/10 p-3 sm:p-4 text-white hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Previous photo"
           >
             <ChevronLeft className="h-6 w-6" />
@@ -183,7 +183,7 @@ export function GalleryGrid() {
             onClick={() =>
               setLightbox((lightbox + 1) % GALLERY_IMAGES.length)
             }
-            className="absolute right-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white"
+            className="absolute right-2 sm:right-4 rounded-full bg-white/10 p-3 sm:p-4 text-white hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Next photo"
           >
             <ChevronRight className="h-6 w-6" />

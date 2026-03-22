@@ -60,7 +60,7 @@ export default function PublicationsPage() {
           {PLACEHOLDER_PUBLICATIONS.map((pub) => (
             <div
               key={pub.id}
-              className="flex flex-col gap-6 rounded-2xl border border-border bg-background p-8 transition-all hover:border-green-200 hover:shadow-lg md:flex-row"
+              className="flex flex-col gap-6 rounded-2xl border border-border bg-background p-5 sm:p-8 transition-all hover:border-green-200 hover:shadow-lg md:flex-row"
             >
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-green-100 text-green-700">
                 <FileText className="h-8 w-8" />

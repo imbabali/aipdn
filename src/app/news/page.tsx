@@ -79,7 +79,7 @@ export default function NewsPage() {
               style={{ objectPosition: featured.imagePosition }}
             />
           </div>
-          <div className="flex flex-1 flex-col justify-center p-8">
+          <div className="flex flex-1 flex-col justify-center p-5 sm:p-8">
             <div className="flex items-center gap-3">
               <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
                 {featured.category}

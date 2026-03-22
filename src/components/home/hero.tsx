@@ -37,7 +37,7 @@ export function Hero() {
   const slide = slides[current];
 
   return (
-    <section className="relative overflow-hidden bg-green-900 h-[600px] md:h-[700px]">
+    <section className="relative overflow-hidden bg-green-900 h-[500px] sm:h-[600px] md:h-[700px]">
       {/* Slide images */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -60,7 +60,7 @@ export function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative mx-auto flex h-full max-w-7xl items-center px-6">
+      <div className="relative mx-auto flex h-full max-w-7xl items-center px-4 sm:px-6">
         <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -81,10 +81,10 @@ export function Hero() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="mt-6 font-heading text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="mt-6 font-heading text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl md:text-5xl lg:text-6xl">
                 {slide.title}
               </h1>
-              <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/80">
+              <p className="mt-4 max-w-xl text-base sm:text-lg leading-relaxed text-white/80">
                 {slide.description}
               </p>
             </motion.div>
@@ -114,12 +114,12 @@ export function Hero() {
       </div>
 
       {/* Slide controls */}
-      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-4">
+      <div className="absolute bottom-16 sm:bottom-20 left-1/2 flex -translate-x-1/2 items-center gap-3 sm:gap-4">
         <button
           onClick={() =>
             setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
           }
-          className="rounded-full bg-white/10 p-2 text-white backdrop-blur-sm hover:bg-white/20 transition-colors"
+          className="rounded-full bg-white/10 p-3 text-white backdrop-blur-sm hover:bg-white/20 transition-colors"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-5 w-5" />
@@ -129,8 +129,8 @@ export function Hero() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`h-2.5 rounded-full transition-all ${
-                i === current ? "w-8 bg-white" : "w-2.5 bg-white/40"
+              className={`h-3 rounded-full transition-all ${
+                i === current ? "w-8 bg-white" : "w-3 bg-white/40"
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />
@@ -138,7 +138,7 @@ export function Hero() {
         </div>
         <button
           onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
-          className="rounded-full bg-white/10 p-2 text-white backdrop-blur-sm hover:bg-white/20 transition-colors"
+          className="rounded-full bg-white/10 p-3 text-white backdrop-blur-sm hover:bg-white/20 transition-colors"
           aria-label="Next slide"
         >
           <ChevronRight className="h-5 w-5" />
@@ -147,7 +147,7 @@ export function Hero() {
 
       {/* Stats bar */}
       <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-green-900/80 backdrop-blur-sm">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-6 py-5 md:grid-cols-4">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 sm:gap-4 px-4 sm:px-6 py-4 sm:py-5 md:grid-cols-4">
           {[
             { value: "30+", label: "African Countries" },
             { value: "100+", label: "Political Parties" },
@@ -155,10 +155,10 @@ export function Hero() {
             { value: "15+", label: "Years of Impact" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="font-heading text-2xl font-bold text-white">
+              <div className="font-heading text-xl sm:text-2xl font-bold text-white">
                 {stat.value}
               </div>
-              <div className="text-xs text-white/60">{stat.label}</div>
+              <div className="text-[11px] sm:text-xs text-white/60">{stat.label}</div>
             </div>
           ))}
         </div>
