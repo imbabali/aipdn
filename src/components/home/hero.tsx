@@ -53,6 +53,7 @@ export function Hero() {
             alt={slide.title}
             fill
             className="object-cover"
+            style={{ objectPosition: "center 60%" }}
             priority={current === 0}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 via-green-900/70 to-green-900/40" />

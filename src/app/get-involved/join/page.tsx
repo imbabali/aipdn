@@ -25,7 +25,8 @@ export default function JoinPage() {
       <PageHero
         title="Join the Network"
         description="Become part of Africa's leading platform for inter-party dialogue and democratic engagement."
-        backgroundImage="/images/gallery/Img-250.jpg"
+        backgroundImage="/images/gallery/Img-262.jpg"
+        imagePosition="center 25%"
         breadcrumbs={[
           { label: "Get Involved", href: "/get-involved" },
           { label: "Join the Network" },

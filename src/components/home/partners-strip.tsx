@@ -36,9 +36,9 @@ export function PartnersStrip() {
             <Image
               src={partner.logo}
               alt={partner.name}
-              width={120}
-              height={60}
-              className="h-12 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+              width={140}
+              height={70}
+              className="h-14 w-auto max-w-[130px] object-contain opacity-70 hover:opacity-100 transition-opacity"
             />
           </motion.div>
         ))}

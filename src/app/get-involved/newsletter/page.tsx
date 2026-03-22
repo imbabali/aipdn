@@ -24,6 +24,7 @@ export default function NewsletterPage() {
         title="Newsletter"
         description="Stay connected with the latest developments in inter-party dialogue across Africa."
         backgroundImage="/images/gallery/Img-220.jpg"
+        imagePosition="center 30%"
         breadcrumbs={[
           { label: "Get Involved", href: "/get-involved" },
           { label: "Newsletter" },

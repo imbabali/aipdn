@@ -48,6 +48,7 @@ export default function PublicationsPage() {
         title="Publications"
         description="Research papers, policy briefs, toolkits, and comparative studies advancing the practice of inter-party dialogue."
         backgroundImage="/images/gallery/Img-126.jpg"
+        imagePosition="center 30%"
         breadcrumbs={[
           { label: "Resources", href: "/resources" },
           { label: "Publications" },

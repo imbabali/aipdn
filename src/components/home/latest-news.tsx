@@ -17,6 +17,7 @@ const NEWS_ARTICLES = [
     published_at: "2026-02-18",
     slug: "mou-ips-aipdn",
     image: "/images/news/mou-ips.jpg",
+    imagePosition: "center",
   },
   {
     id: "2",
@@ -27,6 +28,7 @@ const NEWS_ARTICLES = [
     published_at: "2025-12-19",
     slug: "rethinking-inter-party-dialogue",
     image: "/images/news/roundtable-2025.jpg",
+    imagePosition: "center 70%",
   },
   {
     id: "3",
@@ -37,6 +39,7 @@ const NEWS_ARTICLES = [
     published_at: "2025-11-21",
     slug: "ppi-africa-partnership",
     image: "/images/news/ppi-partnership.png",
+    imagePosition: "center",
   },
 ];
 
@@ -62,12 +65,13 @@ export function LatestNews() {
               href={`/news/${article.slug}`}
               className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-background transition-all hover:border-green-200 hover:shadow-lg"
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
+              <div className="relative aspect-[16/10] overflow-hidden bg-green-50">
                 <Image
                   src={article.image}
                   alt={article.title}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  style={{ objectPosition: article.imagePosition }}
                 />
               </div>
               <div className="flex flex-1 flex-col p-6">

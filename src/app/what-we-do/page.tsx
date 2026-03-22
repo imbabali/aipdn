@@ -32,7 +32,8 @@ export default function WhatWeDoPage() {
       <PageHero
         title="What We Do"
         description="We work across five interconnected pillars to strengthen inter-party dialogue and democratic governance across Africa."
-        backgroundImage="/images/gallery/Img-247.jpg"
+        backgroundImage="/images/gallery/Img-250.jpg"
+        imagePosition="center 35%"
         breadcrumbs={[{ label: "What We Do" }]}
       />
 

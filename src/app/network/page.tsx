@@ -16,7 +16,8 @@ export default function NetworkPage() {
       <PageHero
         title="Our Network"
         description="A continent-wide network of partners, political parties, and civil society organizations committed to democratic dialogue."
-        backgroundImage="/images/gallery/AIPDN-PARTNERSHIP.jpg"
+        backgroundImage="/images/gallery/AIPDN-PARTNERSHIP-1.jpg"
+        imagePosition="center 30%"
         breadcrumbs={[{ label: "Our Network" }]}
       />
 

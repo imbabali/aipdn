@@ -68,6 +68,7 @@ export default function GetInvolvedPage() {
         title="Get Involved"
         description="Join the movement for structured political dialogue across Africa. There are many ways to engage."
         backgroundImage="/images/gallery/Img-260.jpg"
+        imagePosition="center 25%"
         breadcrumbs={[{ label: "Get Involved" }]}
       />
 

@@ -15,6 +15,7 @@ export default function AboutPage() {
         title="Our Story"
         description="Building a culture of dialogue and democratic engagement across Africa since the early 2000s."
         backgroundImage="/images/gallery/Img-208.jpg"
+        imagePosition="center 30%"
         breadcrumbs={[{ label: "About" }]}
       />
 

@@ -6,6 +6,7 @@ interface PageHeroProps {
   description?: string;
   breadcrumbs?: { label: string; href?: string }[];
   backgroundImage?: string;
+  imagePosition?: string;
   className?: string;
 }
 
@@ -14,6 +15,7 @@ export function PageHero({
   description,
   breadcrumbs,
   backgroundImage,
+  imagePosition = "center 40%",
   className,
 }: PageHeroProps) {
   return (
@@ -33,6 +35,7 @@ export function PageHero({
             alt=""
             fill
             className="object-cover"
+            style={{ objectPosition: imagePosition }}
             priority
             aria-hidden="true"
           />

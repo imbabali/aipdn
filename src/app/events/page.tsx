@@ -24,6 +24,7 @@ const EVENTS = [
     end_date: "2026-01-30",
     status: "past" as string,
     image: "/images/events/west-africa-training.jpg",
+    imagePosition: "center 55%",
   },
   {
     id: "2",
@@ -36,6 +37,7 @@ const EVENTS = [
     end_date: "2025-12-03",
     status: "past" as string,
     image: "/images/events/roundtable-parties.jpg",
+    imagePosition: "center 65%",
   },
 ];
 
@@ -49,6 +51,7 @@ export default function EventsPage() {
         title="Events"
         description="Join us at dialogues, training workshops, roundtables, and regional forums advancing democracy across Africa."
         backgroundImage="/images/events/roundtable-parties.jpg"
+        imagePosition="center 60%"
         breadcrumbs={[{ label: "Events" }]}
       />
 
@@ -117,6 +120,7 @@ export default function EventsPage() {
                   alt={event.title}
                   fill
                   className="object-cover"
+                  style={{ objectPosition: event.imagePosition }}
                 />
               </div>
               <div className="p-6">
