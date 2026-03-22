@@ -56,6 +56,7 @@ export default function NewsPage() {
       <PageHero
         title="News & Insights"
         description="Stay informed on our latest initiatives, research, partnerships, and events."
+        backgroundImage="/images/news/roundtable-2025.jpg"
         breadcrumbs={[{ label: "News & Insights" }]}
       />
 

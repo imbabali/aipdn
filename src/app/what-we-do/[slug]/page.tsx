@@ -113,6 +113,7 @@ export default async function PillarPage({
       <PageHero
         title={pillar.title}
         description={pillar.description}
+        backgroundImage="/images/gallery/Img-262.jpg"
         breadcrumbs={[
           { label: "What We Do", href: "/what-we-do" },
           { label: pillar.title },

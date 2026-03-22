@@ -67,6 +67,7 @@ export default function GetInvolvedPage() {
       <PageHero
         title="Get Involved"
         description="Join the movement for structured political dialogue across Africa. There are many ways to engage."
+        backgroundImage="/images/gallery/Img-260.jpg"
         breadcrumbs={[{ label: "Get Involved" }]}
       />
 

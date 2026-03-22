@@ -36,6 +36,7 @@ export default function ToolkitsPage() {
       <PageHero
         title="Toolkits & Guides"
         description="Practical resources for practitioners working to advance inter-party dialogue and democratic governance."
+        backgroundImage="/images/gallery/Img-116.jpg"
         breadcrumbs={[
           { label: "Resources", href: "/resources" },
           { label: "Toolkits & Guides" },

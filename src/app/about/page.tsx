@@ -14,6 +14,7 @@ export default function AboutPage() {
       <PageHero
         title="Our Story"
         description="Building a culture of dialogue and democratic engagement across Africa since the early 2000s."
+        backgroundImage="/images/gallery/Img-208.jpg"
         breadcrumbs={[{ label: "About" }]}
       />
 

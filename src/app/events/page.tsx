@@ -48,6 +48,7 @@ export default function EventsPage() {
       <PageHero
         title="Events"
         description="Join us at dialogues, training workshops, roundtables, and regional forums advancing democracy across Africa."
+        backgroundImage="/images/events/roundtable-parties.jpg"
         breadcrumbs={[{ label: "Events" }]}
       />
 

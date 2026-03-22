@@ -47,6 +47,7 @@ export default function PublicationsPage() {
       <PageHero
         title="Publications"
         description="Research papers, policy briefs, toolkits, and comparative studies advancing the practice of inter-party dialogue."
+        backgroundImage="/images/gallery/Img-126.jpg"
         breadcrumbs={[
           { label: "Resources", href: "/resources" },
           { label: "Publications" },

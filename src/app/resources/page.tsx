@@ -43,6 +43,7 @@ export default function ResourcesPage() {
       <PageHero
         title="Resources"
         description="Access our library of publications, media, and practical tools for advancing inter-party dialogue in Africa."
+        backgroundImage="/images/gallery/Img-229.jpg"
         breadcrumbs={[{ label: "Resources" }]}
       />
 

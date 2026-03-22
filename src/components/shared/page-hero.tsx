@@ -1,9 +1,11 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface PageHeroProps {
   title: string;
   description?: string;
   breadcrumbs?: { label: string; href?: string }[];
+  backgroundImage?: string;
   className?: string;
 }
 
@@ -11,26 +13,46 @@ export function PageHero({
   title,
   description,
   breadcrumbs,
+  backgroundImage,
   className,
 }: PageHeroProps) {
   return (
     <div
       className={cn(
-        "relative bg-gradient-to-br from-green-800 via-green-700 to-teal-700 py-20 md:py-28",
+        "relative overflow-hidden py-20 md:py-28",
+        !backgroundImage &&
+          "bg-gradient-to-br from-green-800 via-green-700 to-teal-700",
         className
       )}
     >
+      {/* Background image */}
+      {backgroundImage && (
+        <>
+          <Image
+            src={backgroundImage}
+            alt=""
+            fill
+            className="object-cover"
+            priority
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 via-green-900/75 to-green-900/50" />
+        </>
+      )}
+
       {/* Decorative pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-      </div>
+      {!backgroundImage && (
+        <div className="absolute inset-0 opacity-10" aria-hidden="true">
+          <div
+            className="h-full w-full"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+              backgroundSize: "40px 40px",
+            }}
+          />
+        </div>
+      )}
 
       <div className="relative mx-auto max-w-7xl px-6">
         {breadcrumbs && breadcrumbs.length > 0 && (
@@ -43,7 +65,7 @@ export function PageHero({
               </li>
               {breadcrumbs.map((crumb, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <span>/</span>
+                  <span aria-hidden="true">/</span>
                   {crumb.href ? (
                     <a
                       href={crumb.href}
@@ -52,7 +74,9 @@ export function PageHero({
                       {crumb.label}
                     </a>
                   ) : (
-                    <span className="text-white/90">{crumb.label}</span>
+                    <span className="text-white/90" aria-current="page">
+                      {crumb.label}
+                    </span>
                   )}
                 </li>
               ))}

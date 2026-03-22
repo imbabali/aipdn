@@ -56,15 +56,21 @@ export function Footer() {
                 across Africa.
               </p>
             </div>
-            <form className="flex w-full max-w-md gap-3 md:w-auto">
+            <form
+              action="/get-involved/newsletter"
+              method="get"
+              className="flex w-full max-w-md gap-3 md:w-auto"
+            >
               <label htmlFor="footer-email" className="sr-only">
                 Email address
               </label>
               <input
                 id="footer-email"
                 type="email"
+                name="email"
                 placeholder="Enter your email"
                 required
+                autoComplete="email"
                 className="flex-1 rounded-full bg-white/10 px-5 py-3 text-sm text-white placeholder:text-white/50 border border-white/20 focus:border-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-400/30"
               />
               <button
@@ -72,7 +78,7 @@ export function Footer() {
                 className="inline-flex items-center gap-2 rounded-full bg-teal-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-600"
               >
                 Subscribe
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </button>
             </form>
           </div>

@@ -42,6 +42,7 @@ export default function GovernancePage() {
       <PageHero
         title="Governance"
         description="The structures and principles that guide our work across the continent."
+        backgroundImage="/images/gallery/Img-168.jpg"
         breadcrumbs={[
           { label: "About", href: "/about" },
           { label: "Governance" },

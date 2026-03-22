@@ -48,6 +48,7 @@ export default function TeamPage() {
       <PageHero
         title="Our Team"
         description="A dedicated team of professionals committed to advancing inter-party dialogue and democratic governance in Africa."
+        backgroundImage="/images/gallery/Img-194.jpg"
         breadcrumbs={[
           { label: "About", href: "/about" },
           { label: "Our Team" },

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
 import { Mail, Bell, FileText, Calendar } from "lucide-react";
+import { NewsletterForm } from "./newsletter-form";
 
 export const metadata: Metadata = {
   title: "Newsletter",
@@ -22,6 +23,7 @@ export default function NewsletterPage() {
       <PageHero
         title="Newsletter"
         description="Stay connected with the latest developments in inter-party dialogue across Africa."
+        backgroundImage="/images/gallery/Img-220.jpg"
         breadcrumbs={[
           { label: "Get Involved", href: "/get-involved" },
           { label: "Newsletter" },
@@ -38,7 +40,7 @@ export default function NewsletterPage() {
               {whatYouGet.map((item) => (
                 <div key={item.title} className="flex gap-4">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-700">
-                    <item.icon className="h-5 w-5" />
+                    <item.icon className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-heading text-sm font-bold text-foreground">
@@ -60,42 +62,7 @@ export default function NewsletterPage() {
             <p className="mt-2 text-sm text-muted-foreground">
               Join our growing community of democracy advocates. No spam, unsubscribe anytime.
             </p>
-            <form className="mt-8 space-y-5">
-              <div>
-                <label htmlFor="nl-name" className="block text-sm font-medium text-foreground">
-                  Name (optional)
-                </label>
-                <input
-                  type="text"
-                  id="nl-name"
-                  name="name"
-                  className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-sm placeholder:text-muted-foreground focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/20"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label htmlFor="nl-email" className="block text-sm font-medium text-foreground">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="nl-email"
-                  name="email"
-                  required
-                  className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-sm placeholder:text-muted-foreground focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/20"
-                  placeholder="you@example.com"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full rounded-full bg-teal-600 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-teal-700 hover:shadow-md"
-              >
-                Subscribe
-              </button>
-              <p className="text-xs text-muted-foreground text-center">
-                By subscribing, you agree to receive emails from AIPDN. You can unsubscribe at any time.
-              </p>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
       </Section>
