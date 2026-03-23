@@ -106,7 +106,7 @@ export function Footer() {
               peace, and foster inclusive governance.
             </p>
             <p className="mt-4 text-xs text-white/50">
-              The AIPDN Secretariat is housed by Prospect Peace Institute -Africa
+              The AIPDN Secretariat is housed by Prospect Peace Institute, Africa
               (PPI-A) in Nairobi, Kenya.
             </p>
 

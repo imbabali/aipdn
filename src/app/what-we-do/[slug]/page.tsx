@@ -23,7 +23,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 const pillarContent: Record<string, { detail: string; activities: string[] }> = {
   "dialogue-facilitation": {
     detail:
-      "AIPDN designs and supports inter-party dialogue processes at national and regional levels. Our approach is rooted in impartiality, inclusivity, and African ownership -ensuring that dialogue processes reflect local political realities while drawing on international best practice.",
+      "AIPDN designs and supports inter-party dialogue processes at national and regional levels. Our approach is rooted in impartiality, inclusivity, and African ownership, ensuring that dialogue processes reflect local political realities while drawing on international best practice.",
     activities: [
       "National inter-party dialogue platforms",
       "Regional multi-party consultations",
