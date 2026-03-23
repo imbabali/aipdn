@@ -92,7 +92,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3">
               <Image
-                src="/images/logo/logo-light.jpg"
+                src="/images/logo/logo.png"
                 alt="AIPDN Logo"
                 width={44}
                 height={44}
