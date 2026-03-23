@@ -14,14 +14,14 @@ const partnerCategories = [
   {
     title: "Civil Society, Governance & Peacekeeping",
     partners: [
-      { name: "West Africa Network for Peacebuilding (WANEP) Senegal", logo: "/images/partners/sia.jpg", website: null },
+      { name: "West Africa Network for Peacebuilding (WANEP) Senegal", logo: "/images/partners/wanep.jpg", website: null },
       { name: "African Youth Initiative Network (AYINET)", logo: "/images/partners/ayinet.jpg", website: "https://ayinet.org" },
       { name: "Horn Center for Democracy (HCD) – Ethiopia", logo: "/images/partners/horn-center.png", website: null },
       { name: "Gender Empowerment South Sudan Organisation (GESSO)", logo: "/images/partners/gesso.jpg", website: null },
       { name: "Trust Africa", logo: "/images/partners/trustafrica.jpg", website: "https://trustafrica.org" },
       { name: "Goree Institute", logo: "/images/partners/goree.jpg", website: null },
-      { name: "Institute for Pan African Strategies (IPS)", logo: "/images/partners/sia.jpg", website: null },
-      { name: "Centre for Multi-Party Democracy (CMD) Kenya", logo: "/images/partners/sia.jpg", website: null },
+      { name: "Institute for Pan African Strategies (IPS)", logo: "/images/partners/ips.png", website: null },
+      { name: "Centre for Multi-Party Democracy (CMD) Kenya", logo: "/images/partners/cmd-kenya.png", website: null },
     ],
   },
   {
