@@ -55,7 +55,7 @@ export default function NetworkPage() {
               Member Organizations
             </h2>
             <p className="mt-3 flex-1 text-muted-foreground leading-relaxed">
-              Political parties and organizations from 30+ African countries
+              Political parties and organizations from across Africa
               that form the backbone of the AIPDN network.
             </p>
             <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal-700">

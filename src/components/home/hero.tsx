@@ -145,22 +145,12 @@ export function Hero() {
         </button>
       </div>
 
-      {/* Stats bar */}
+      {/* Mission bar */}
       <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-green-900/80 backdrop-blur-sm">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 sm:gap-4 px-4 sm:px-6 py-4 sm:py-5 md:grid-cols-4">
-          {[
-            { value: "30+", label: "African Countries" },
-            { value: "100+", label: "Political Parties" },
-            { value: "50+", label: "Dialogues Facilitated" },
-            { value: "15+", label: "Years of Impact" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="font-heading text-xl sm:text-2xl font-bold text-white">
-                {stat.value}
-              </div>
-              <div className="text-[11px] sm:text-xs text-white/60">{stat.label}</div>
-            </div>
-          ))}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-4 sm:py-5 text-center">
+          <p className="text-sm sm:text-base text-white/80 leading-relaxed max-w-3xl mx-auto">
+            Facilitating structured, inclusive dialogue among African political parties to strengthen democracy, promote peace, and foster inclusive governance across the continent.
+          </p>
         </div>
       </div>
     </section>

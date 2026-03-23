@@ -29,10 +29,10 @@ export default function MembersPage() {
             <Users className="h-10 w-10" />
           </div>
           <h2 className="mt-6 font-heading text-2xl font-bold text-foreground">
-            100+ Political Parties Across 30+ Countries
+            A Growing Network of Political Parties Across Africa
           </h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            The AIPDN network spans the entire African continent, connecting
+            The AIPDN network spans the African continent, connecting
             political parties from diverse ideological backgrounds in a shared
             commitment to democratic dialogue. Our member directory is being
             updated. Check back soon for the complete listing.

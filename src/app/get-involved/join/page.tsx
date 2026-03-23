@@ -7,13 +7,13 @@ import { JoinForm } from "./join-form";
 export const metadata: Metadata = {
   title: "Join the Network",
   description:
-    "Apply to become a member of the African Inter-Party Dialogue Network and join 100+ political parties across 30+ countries.",
+    "Apply to become a member of the African Inter-Party Dialogue Network and join political parties across the continent.",
 };
 
 const benefits = [
   "Access to continental dialogue platforms and forums",
   "Training and capacity building opportunities",
-  "Network of 100+ political parties across 30+ countries",
+  "Network of political parties across the African continent",
   "Research publications and policy briefs",
   "Peer-learning exchanges with political actors across Africa",
   "Technical advisory support for national dialogue processes",

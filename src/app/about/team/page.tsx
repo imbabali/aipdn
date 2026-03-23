@@ -33,7 +33,7 @@ const TEAM = [
   },
   {
     name: "Mr. Alex Rusita",
-    role: "Director of Programmes",
+    role: "Senior Advisor",
     image: "/images/team/alex-rusita.jpg",
     objectPosition: "center 15%",  // tight headshot, face fills frame
     bio: "Alex Rusita possesses extensive expertise in development planning and management across the aid programme cycle, with emphasis on results-based management, monitoring and evaluation, and development policy analysis. He has served across Eastern and Southern Africa, the Horn, and the Caribbean, delivering policy guidance and humanitarian assistance. Over three decades, he has collaborated with multilateral and bilateral organizations, alongside local and international NGOs and think tanks. His multisectoral career encompasses Public Health, Public Sector Development, Capacity Building, Trade, Humanitarian Assistance, and Peace Building. His current focus centers on job creation for the youth in Africa.",
