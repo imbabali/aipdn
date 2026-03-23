@@ -3,16 +3,20 @@
 # AIPDN Project
 
 ## Overview
-Website for the **African Inter-Party Dialogue Network (AIPDN)** — a pan-African organization facilitating structured, inclusive dialogue among political parties to strengthen democracy, promote peace, and foster inclusive governance. Secretariat housed by Prospect Peace Institute–Africa (PPI-A) in Nairobi, Kenya.
+Website for the **African Inter-Party Dialogue Network (AIPDN)**, a pan-African organization facilitating structured, inclusive dialogue among political parties to strengthen democracy, promote peace, and foster inclusive governance. Secretariat housed by Prospect Peace Institute, Africa (PPI-A) in Nairobi, Kenya.
+
+**Live site:** https://aipdn.vercel.app
+**Repository:** https://github.com/imbabali/aipdn
 
 ## Tech Stack
-- **Frontend:** Next.js 16 (App Router) + React 19 + TypeScript
+- **Frontend:** Next.js 16.2 (App Router, Turbopack) + React 19.2 + TypeScript 5
 - **Styling:** Tailwind CSS 4 (`@theme inline` syntax, `@import "tailwindcss"`)
-- **Backend:** Supabase (PostgreSQL, Auth, Storage) — client configured, DB integration pending
+- **Backend:** Supabase (PostgreSQL, Auth, Storage) via `@supabase/ssr` — configured, DB integration pending
 - **Animations:** Framer Motion
 - **Icons:** Lucide React
+- **Utilities:** clsx + tailwind-merge (`cn()` helper)
 - **Hosting:** Vercel (auto-deploys from `main` branch)
-- **Repo:** https://github.com/imbabali/aipdn
+- **Package manager:** npm 11
 
 ## Key Commands
 ```bash
@@ -24,78 +28,81 @@ npm run lint     # ESLint
 ## Project Structure
 ```
 src/
-├── app/                    # Next.js App Router pages
-│   ├── layout.tsx          # Root layout (fonts, header, footer, donate banner, WhatsApp)
-│   ├── page.tsx            # Homepage
+├── app/                    # Next.js App Router pages (32 routes)
+│   ├── layout.tsx          # Root layout (fonts, header, donate banner, footer, WhatsApp)
+│   ├── page.tsx            # Homepage (hero slider, pillars carousel, news, partners, CTA)
 │   ├── actions.ts          # Server actions (contact, join, newsletter forms)
+│   ├── globals.css         # Tailwind import, CSS variables, @theme inline, animations
 │   ├── robots.ts           # SEO crawl rules
-│   ├── sitemap.ts          # Dynamic XML sitemap
-│   ├── error.tsx           # Error boundary
+│   ├── sitemap.ts          # Dynamic XML sitemap (all routes + pillar pages)
+│   ├── error.tsx           # Error boundary with retry
 │   ├── loading.tsx         # Loading skeleton
 │   ├── not-found.tsx       # Custom 404
-│   ├── about/              # About, Team, Governance
-│   ├── what-we-do/         # Overview + [slug] dynamic pillar pages
-│   ├── events/             # Events listing
-│   ├── news/               # News & Insights
-│   ├── resources/          # Publications, Gallery, Toolkits
-│   ├── network/            # Partners, Members
-│   ├── get-involved/       # Join, Newsletter, Contact (with client form components)
-│   └── donate/             # M-Pesa donation flow
+│   ├── about/              # Our Story, Team (5 members), Governance
+│   ├── what-we-do/         # Overview + [slug] dynamic pillar pages (5 pillars)
+│   ├── events/             # Events listing (2 past events)
+│   ├── news/               # News listing + [slug] article pages (3 articles)
+│   ├── resources/          # Publications, Gallery (78 photos with lightbox), Toolkits
+│   ├── network/            # Partners (19 orgs across 4 categories), Members
+│   ├── get-involved/       # Join, Newsletter, Contact (each with client form component)
+│   └── donate/             # M-Pesa donation flow with WhatsApp confirmation
 ├── components/
 │   ├── layout/             # Header, Footer, DonateBanner
-│   ├── home/               # Hero, PillarsCarousel, WhyDialogue, LatestNews, PartnersStrip, CTA
+│   ├── home/               # Hero, PillarsCarousel, Pillars, WhyDialogue, LatestNews, PartnersStrip, CTA
 │   ├── shared/             # Section, SectionHeader, PageHero, FormStatus
-│   ├── gallery-grid.tsx    # Client-side gallery with lightbox
-│   └── whatsapp-bubble.tsx # Floating WhatsApp chat button
+│   ├── gallery-grid.tsx    # Client-side gallery with lightbox + keyboard nav
+│   └── whatsapp-bubble.tsx # Floating WhatsApp chat button (0741694575)
 ├── lib/
-│   ├── constants.ts        # Site name, contact, nav items, pillars, social links
+│   ├── constants.ts        # Site config, contact, nav items, pillars, social links
 │   ├── utils.ts            # cn(), formatDate(), truncate()
-│   └── supabase/           # client.ts, server.ts, types.ts
+│   └── supabase/           # client.ts (browser), server.ts (SSR), types.ts (DB schema)
 public/
-└── images/                 # All static images
-    ├── logo/               # logo.png, logo-light.jpg
+└── images/
+    ├── logo/               # logo.png (1024x1024), logo-light.png (1024x821) — from PDF source
     ├── team/               # 5 team member photos (768x768)
-    ├── partners/           # 17 partner logos
+    ├── partners/           # 19 partner logos
     ├── news/               # 3 article images
     ├── events/             # 2 event images
-    ├── gallery/            # 78 gallery photos
+    ├── gallery/            # 78 gallery photos (migrated from WordPress)
     └── slider/             # 2 hero slider backgrounds (1920x600)
 supabase/
-└── migrations/             # 001_initial_schema.sql (all tables + RLS)
+└── migrations/             # 001_initial_schema.sql (9 tables + RLS policies)
 ```
 
 ## Architecture Decisions
 
 ### Server vs Client Components
-- Pages are server components by default (metadata exports)
-- Client components only for: forms (useActionState), carousel (useState/useEffect), gallery lightbox, mobile menu, WhatsApp bubble, donate form
-- Form pages split into server page + client form component (e.g., `contact/page.tsx` + `contact/contact-form.tsx`)
+- Pages are **server components by default** (enables metadata exports)
+- `"use client"` only for: forms (`useActionState`), carousel, gallery lightbox, mobile menu, WhatsApp bubble, donate form
+- Form pages split: server page (metadata) + client form component (e.g., `contact/page.tsx` + `contact/contact-form.tsx`)
 
 ### Image Handling
 - All images stored locally in `public/images/` (migrated from WordPress)
-- Each hero background has a custom `imagePosition` prop (object-position %) tuned to show faces
-- Team photos use per-member `objectPosition` based on composition
-- Next.js `<Image>` with `fill` + `priority` on heroes, `sizes` prop on grids
+- Each hero background has a custom `imagePosition` prop tuned per image subject placement
+- Team photos use per-member `objectPosition` based on face/body composition
+- Next.js `<Image>` with `fill` + `priority` on heroes, `sizes` on grids
 - AVIF + WebP formats enabled in next.config.ts
+- Logos extracted from PDF source at 1024px resolution
 
-### Forms
-- Server actions in `src/app/actions.ts` with validation
+### Forms & Server Actions
+- Server actions in `src/app/actions.ts` with email validation
 - `useActionState` from React 19 for pending/success/error states
+- `FormStatus` component with `role="alert"` for accessible feedback
 - TODO: Wire to Supabase tables when DB is connected
 
-### Donate Flow
-- M-Pesa based — linked to phone number 0741694575
-- Preset amounts (KES 500–25,000) + custom amount
-- Two-step: select → confirm with copy-to-clipboard M-Pesa number
-- "Confirm on WhatsApp" with pre-filled message including amount + transaction code placeholder
-- Donate button visible in header on all screen sizes + banner above footer on every page (hidden on /donate)
+### Donate Flow (M-Pesa)
+- Linked to phone number 0741694575
+- Preset amounts (KES 500, 1K, 2.5K, 5K, 10K, 25K) + custom amount
+- Two-step: select amount, then confirm with copy-to-clipboard M-Pesa number
+- "Confirm on WhatsApp" sends pre-filled message with amount + transaction code placeholder
+- Donate button in header (all screen sizes) + banner above footer (hidden on /donate page)
 
 ### Responsive Design
-- Mobile-first: `px-4 sm:px-6`, `p-5 sm:p-8`, `text-base sm:text-sm` on inputs (iOS zoom prevention)
-- All touch targets ≥44px
-- Hero heights: `h-[500px] sm:h-[600px] md:h-[700px]`
-- Footer newsletter form stacks vertically on mobile
-- Gallery lightbox: keyboard nav (Escape, arrows), body scroll lock
+- Mobile-first: `px-4 sm:px-6`, `p-5 sm:p-8`, `text-base sm:text-sm` on inputs
+- All touch targets >= 44px
+- Hero: `h-[500px] sm:h-[600px] md:h-[700px]`
+- Footer newsletter stacks vertically on mobile
+- Gallery lightbox: keyboard nav (Escape, Arrow keys), body scroll lock, `prefers-reduced-motion` support
 
 ### Security Headers (next.config.ts)
 - X-Frame-Options: DENY
@@ -104,15 +111,33 @@ supabase/
 - Permissions-Policy: camera=(), microphone=(), geolocation=()
 - Static images: Cache-Control max-age=31536000, immutable
 
+### Accessibility (WCAG 2.2 AA)
+- Skip-to-content link
+- Focus-visible rings on all interactive elements
+- ARIA labels, roles, aria-current, aria-modal on gallery/lightbox
+- `role="alert"` on form feedback
+- `role="status"` on loading spinner
+- `autoComplete` on all form inputs
+- `prefers-reduced-motion` fallback on carousel animation
+
+### SEO
+- `robots.ts` + `sitemap.ts` covering all routes
+- `metadataBase` with template titles
+- OpenGraph + Twitter Card metadata
+- Dynamic `generateMetadata` on [slug] pages
+- `generateStaticParams` for SSG on dynamic routes
+
 ## Collaborators
 - **imbabali** (owner)
 - **tonmag006** (admin)
 
 ## Pending Work
-- [ ] Connect Supabase (blocked by invoice — clear at https://supabase.com/dashboard/org/ruelzgbvmwcimmuxjktk/invoices)
-- [ ] Run SQL migration `supabase/migrations/001_initial_schema.sql` in Supabase SQL editor
-- [ ] Wire form actions to Supabase tables (contact_submissions, membership_applications, newsletter_subscribers)
-- [ ] Add `.env.local` with Supabase URL + anon key
-- [ ] Migrate content from hardcoded data to Supabase queries
-- [ ] Custom domain setup (aipdn.org → Vercel)
-- [ ] Plausible analytics integration
+- [ ] Clear Supabase invoice (https://supabase.com/dashboard/org/ruelzgbvmwcimmuxjktk/invoices)
+- [ ] Create Supabase project and run `supabase/migrations/001_initial_schema.sql`
+- [ ] Add `.env.local` with `NEXT_PUBLIC_SUPABASE_URL` + `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- [ ] Wire form server actions to Supabase tables
+- [ ] Migrate hardcoded content to Supabase queries
+- [ ] Custom domain setup (aipdn.org -> Vercel)
+- [ ] Plausible analytics integration (optional, $9/mo)
+- [ ] Add logos for new partners: WANEP Senegal, IPS, CMD Kenya
+- [ ] Verify and add real statistics when available from AIPDN
