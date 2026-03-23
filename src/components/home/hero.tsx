@@ -11,7 +11,7 @@ const slides = [
     image: "/images/slider/slide-1.jpg",
     title: "West Africa Diplomacy, Negotiation and Mediation Training",
     description:
-      "Programme Diplomacy, Negotiation and Mediation Training — 26th-30th January 2026, Dakar, Senegal",
+      "Programme Diplomacy, Negotiation and Mediation Training -26th-30th January 2026, Dakar, Senegal",
     link: "/events",
   },
   {

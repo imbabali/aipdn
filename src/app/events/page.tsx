@@ -31,7 +31,7 @@ const EVENTS = [
     title: "Roundtable on the Role of Political Parties in Africa",
     slug: "roundtable-political-parties-2025",
     description:
-      "Political parties remain indispensable pillars of democratic governance across the African continent. This roundtable addressed how parties can structure voting, enable representation, and combat declining democratic support — which is down 7% across 30 African countries per 2024 Afrobarometer data.",
+      "Political parties remain indispensable pillars of democratic governance across the African continent. This roundtable addressed how parties can structure voting, enable representation, and combat declining democratic support -which is down 7% across 30 African countries per 2024 Afrobarometer data.",
     location: "Prospect Peace Institute – Africa (PPI-A), Nairobi, Kenya",
     start_date: "2025-12-02",
     end_date: "2025-12-03",
@@ -88,7 +88,7 @@ export default function EventsPage() {
                     <span className="flex items-center gap-1.5">
                       <Calendar className="h-4 w-4" />
                       {formatDate(event.start_date)}
-                      {event.end_date && ` — ${formatDate(event.end_date)}`}
+                      {event.end_date && ` -${formatDate(event.end_date)}`}
                     </span>
                     {event.location && (
                       <span className="flex items-center gap-1.5">
@@ -137,7 +137,7 @@ export default function EventsPage() {
                   <span className="flex items-center gap-1">
                     <Calendar className="h-3.5 w-3.5" />
                     {formatDate(event.start_date)}
-                    {event.end_date && ` — ${formatDate(event.end_date)}`}
+                    {event.end_date && ` -${formatDate(event.end_date)}`}
                   </span>
                   {event.location && (
                     <span className="flex items-center gap-1">

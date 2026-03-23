@@ -35,7 +35,7 @@ export default function MembersPage() {
             The AIPDN network spans the entire African continent, connecting
             political parties from diverse ideological backgrounds in a shared
             commitment to democratic dialogue. Our member directory is being
-            updated — check back soon for the complete listing.
+            updated -check back soon for the complete listing.
           </p>
           <a
             href="/get-involved/join"

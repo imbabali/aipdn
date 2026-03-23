@@ -36,7 +36,7 @@ export function WhyDialogue() {
             conflict. Despite its importance, dialogue is often ad hoc and
             underutilized. AIPDN supports structured, inclusive, and sustainable
             dialogue through research, policy guidance, facilitation, and
-            capacity-building&mdash;helping political parties contribute to
+            capacity-building -helping political parties contribute to
             stronger institutions, national cohesion, and resilient societies
             across the continent.
           </p>

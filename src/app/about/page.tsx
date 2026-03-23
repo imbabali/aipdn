@@ -31,7 +31,7 @@ export default function AboutPage() {
               civil society organizations, and governance actors to foster
               structured, inclusive dialogue. We believe that sustainable
               democracy in Africa requires ongoing engagement between political
-              actors&mdash;not just during elections, but as a permanent feature
+              actors -not just during elections, but as a permanent feature
               of governance.
             </p>
 
@@ -49,7 +49,7 @@ export default function AboutPage() {
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
               An Africa where inter-party dialogue is a permanent, institutional
-              feature of democratic governance&mdash;not a crisis response, but a
+              feature of democratic governance -not a crisis response, but a
               proactive mechanism for building consensus, preventing conflict,
               and ensuring inclusive representation.
             </p>
@@ -58,8 +58,8 @@ export default function AboutPage() {
               Our Approach
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              We work at multiple levels&mdash;national, regional, and
-              continental&mdash;to create platforms for dialogue, build capacity
+              We work at multiple levels -national, regional, and
+              continental -to create platforms for dialogue, build capacity
               among political actors, and generate knowledge that informs better
               practice. Our approach is rooted in African ownership, impartiality,
               and a commitment to inclusive processes that reflect the diversity
@@ -72,8 +72,8 @@ export default function AboutPage() {
       <Section className="bg-muted">
         <SectionHeader
           label="The Secretariat"
-          title="Housed by Prospect Peace Institute&mdash;Africa"
-          description="The AIPDN Secretariat is hosted by Prospect Peace Institute&mdash;Africa (PPI-A) in Nairobi, Kenya, providing the institutional home and operational capacity for the network's activities across the continent."
+          title="Housed by Prospect Peace Institute -Africa"
+          description="The AIPDN Secretariat is hosted by Prospect Peace Institute -Africa (PPI-A) in Nairobi, Kenya, providing the institutional home and operational capacity for the network's activities across the continent."
         />
       </Section>
     </>

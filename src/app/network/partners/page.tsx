@@ -36,7 +36,7 @@ const partnerCategories = [
     title: "Academic & Research Institutions",
     partners: [
       { name: "University of Nairobi – IDIS", logo: "/images/partners/uon.jpg", website: "https://idis.uonbi.ac.ke" },
-      { name: "West Africa Research Center (WARC) – Senegal", logo: "/images/partners/warc.png", website: "http://warccroa.org" },
+      { name: "West Africa Research Center (WARC) – Senegal", logo: "/images/partners/warc.png", website: "https://warccroa.org" },
       { name: "Malawi University of Science and Technology (MUST)", logo: "/images/partners/must.png", website: "https://must.ac.mw" },
       { name: "Centre for Democratic Development (CDD–Ghana)", logo: "/images/partners/cdd-ghana.png", website: "https://cddgh.org" },
     ],
