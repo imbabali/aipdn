@@ -11,8 +11,20 @@ export type Database = {
           order: number;
           created_at: string;
         };
-        Insert: Omit<TeamMember, "id" | "created_at">;
-        Update: Partial<Omit<TeamMember, "id" | "created_at">>;
+        Insert: {
+          name: string;
+          role: string;
+          bio?: string | null;
+          image_url?: string | null;
+          order?: number;
+        };
+        Update: {
+          name?: string;
+          role?: string;
+          bio?: string | null;
+          image_url?: string | null;
+          order?: number;
+        };
       };
       events: {
         Row: {
@@ -29,8 +41,19 @@ export type Database = {
           status: "upcoming" | "past" | "cancelled";
           created_at: string;
         };
-        Insert: Omit<Event, "id" | "created_at">;
-        Update: Partial<Omit<Event, "id" | "created_at">>;
+        Insert: {
+          title: string;
+          slug: string;
+          description: string;
+          content?: string | null;
+          location?: string | null;
+          start_date: string;
+          end_date?: string | null;
+          image_url?: string | null;
+          is_featured?: boolean;
+          status?: "upcoming" | "past" | "cancelled";
+        };
+        Update: Partial<Database["public"]["Tables"]["events"]["Insert"]>;
       };
       publications: {
         Row: {
@@ -45,8 +68,17 @@ export type Database = {
           published_date: string;
           created_at: string;
         };
-        Insert: Omit<Publication, "id" | "created_at">;
-        Update: Partial<Omit<Publication, "id" | "created_at">>;
+        Insert: {
+          title: string;
+          slug: string;
+          description?: string | null;
+          category: string;
+          file_url: string;
+          cover_image_url?: string | null;
+          author?: string | null;
+          published_date: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["publications"]["Insert"]>;
       };
       news_articles: {
         Row: {
@@ -62,8 +94,18 @@ export type Database = {
           published_at: string;
           created_at: string;
         };
-        Insert: Omit<NewsArticle, "id" | "created_at">;
-        Update: Partial<Omit<NewsArticle, "id" | "created_at">>;
+        Insert: {
+          title: string;
+          slug: string;
+          excerpt: string;
+          content: string;
+          category: string;
+          image_url?: string | null;
+          author: string;
+          is_featured?: boolean;
+          published_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["news_articles"]["Insert"]>;
       };
       partners: {
         Row: {
@@ -76,8 +118,15 @@ export type Database = {
           order: number;
           created_at: string;
         };
-        Insert: Omit<Partner, "id" | "created_at">;
-        Update: Partial<Omit<Partner, "id" | "created_at">>;
+        Insert: {
+          name: string;
+          category: string;
+          logo_url?: string | null;
+          website_url?: string | null;
+          description?: string | null;
+          order?: number;
+        };
+        Update: Partial<Database["public"]["Tables"]["partners"]["Insert"]>;
       };
       gallery_items: {
         Row: {
@@ -90,8 +139,15 @@ export type Database = {
           order: number;
           created_at: string;
         };
-        Insert: Omit<GalleryItem, "id" | "created_at">;
-        Update: Partial<Omit<GalleryItem, "id" | "created_at">>;
+        Insert: {
+          title: string;
+          description?: string | null;
+          image_url: string;
+          category?: string | null;
+          event_id?: string | null;
+          order?: number;
+        };
+        Update: Partial<Database["public"]["Tables"]["gallery_items"]["Insert"]>;
       };
       contact_submissions: {
         Row: {
@@ -103,8 +159,15 @@ export type Database = {
           is_read: boolean;
           created_at: string;
         };
-        Insert: Omit<ContactSubmission, "id" | "created_at" | "is_read">;
-        Update: Partial<Omit<ContactSubmission, "id" | "created_at">>;
+        Insert: {
+          name: string;
+          email: string;
+          subject: string;
+          message: string;
+        };
+        Update: {
+          is_read?: boolean;
+        };
       };
       newsletter_subscribers: {
         Row: {
@@ -114,8 +177,37 @@ export type Database = {
           is_active: boolean;
           created_at: string;
         };
-        Insert: Omit<NewsletterSubscriber, "id" | "created_at" | "is_active">;
-        Update: Partial<Omit<NewsletterSubscriber, "id" | "created_at">>;
+        Insert: {
+          email: string;
+          name?: string | null;
+        };
+        Update: {
+          is_active?: boolean;
+        };
+      };
+      membership_applications: {
+        Row: {
+          id: string;
+          organization_name: string;
+          organization_type: string;
+          contact_name: string;
+          email: string;
+          country: string;
+          motivation: string | null;
+          status: "pending" | "approved" | "rejected";
+          created_at: string;
+        };
+        Insert: {
+          organization_name: string;
+          organization_type: string;
+          contact_name: string;
+          email: string;
+          country: string;
+          motivation?: string | null;
+        };
+        Update: {
+          status?: "pending" | "approved" | "rejected";
+        };
       };
     };
     Views: Record<string, never>;
@@ -133,3 +225,4 @@ export type Partner = Database["public"]["Tables"]["partners"]["Row"];
 export type GalleryItem = Database["public"]["Tables"]["gallery_items"]["Row"];
 export type ContactSubmission = Database["public"]["Tables"]["contact_submissions"]["Row"];
 export type NewsletterSubscriber = Database["public"]["Tables"]["newsletter_subscribers"]["Row"];
+export type MembershipApplication = Database["public"]["Tables"]["membership_applications"]["Row"];

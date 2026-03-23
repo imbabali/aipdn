@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Access AIPDN research papers, policy briefs, toolkits, and comparative studies on inter-party dialogue in Africa.",
 };
 
-// Placeholder — will be replaced by Supabase data
+// Current publications (static data)
 const PLACEHOLDER_PUBLICATIONS = [
   {
     id: "1",

@@ -1,19 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
 import { RefreshCw } from "lucide-react";
 
 export default function Error({
-  error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
-
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
       <span className="text-6xl font-heading font-bold text-red-200">
