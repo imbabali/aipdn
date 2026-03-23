@@ -114,7 +114,7 @@ export function Hero() {
       </div>
 
       {/* Slide controls */}
-      <div className="absolute bottom-16 sm:bottom-20 left-1/2 flex -translate-x-1/2 items-center gap-3 sm:gap-4">
+      <div className="absolute bottom-24 sm:bottom-28 left-1/2 flex -translate-x-1/2 items-center gap-3 sm:gap-4">
         <button
           onClick={() =>
             setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
