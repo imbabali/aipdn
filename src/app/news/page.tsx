@@ -77,6 +77,7 @@ export default function NewsPage() {
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
               style={{ objectPosition: featured.imagePosition }}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div className="flex flex-1 flex-col justify-center p-5 sm:p-8">
@@ -117,6 +118,7 @@ export default function NewsPage() {
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   style={{ objectPosition: article.imagePosition }}
+                  sizes="(max-width: 640px) 100vw, 50vw"
                 />
               </div>
               <div className="flex flex-1 flex-col p-6">

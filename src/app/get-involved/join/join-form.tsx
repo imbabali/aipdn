@@ -13,6 +13,7 @@ export function JoinForm() {
   return (
     <form action={formAction} className="mt-8 space-y-6">
       <FormStatus state={state} />
+      <input type="text" name="website" className="absolute -left-[9999px]" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div>
         <label htmlFor="org-name" className="block text-sm font-medium text-foreground">
           Organization Name <span className="text-red-500" aria-hidden="true">*</span>
@@ -23,7 +24,7 @@ export function JoinForm() {
           name="org-name"
           required
           autoComplete="organization"
-          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-sm placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
+          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-base sm:text-sm placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
           placeholder="Your organization"
         />
       </div>
@@ -86,7 +87,7 @@ export function JoinForm() {
           name="country"
           required
           autoComplete="country-name"
-          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-sm placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
+          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-base sm:text-sm placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
           placeholder="Country"
         />
       </div>
@@ -98,7 +99,7 @@ export function JoinForm() {
           id="motivation"
           name="motivation"
           rows={4}
-          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-sm placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 resize-none"
+          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-base sm:text-sm placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 resize-none"
           placeholder="Tell us about your interest..."
         />
       </div>

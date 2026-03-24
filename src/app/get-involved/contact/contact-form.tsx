@@ -13,6 +13,7 @@ export function ContactForm() {
   return (
     <form action={formAction} className="mt-8 space-y-6">
       <FormStatus state={state} />
+      <input type="text" name="website" className="absolute -left-[9999px]" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-foreground">
@@ -52,7 +53,7 @@ export function ContactForm() {
           id="subject"
           name="subject"
           required
-          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
+          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-base sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20"
           placeholder="What's this about?"
         />
       </div>
@@ -65,7 +66,7 @@ export function ContactForm() {
           name="message"
           rows={6}
           required
-          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 resize-none"
+          className="mt-2 block w-full rounded-xl border border-border bg-background px-4 py-3 text-base sm:text-sm text-foreground placeholder:text-muted-foreground focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 resize-none"
           placeholder="Your message..."
         />
       </div>

@@ -78,6 +78,7 @@ export default function TeamPage() {
                     fill
                     className="object-cover"
                     style={{ objectPosition: member.objectPosition }}
+                    sizes="(max-width: 768px) 192px, 256px"
                   />
                 </div>
               </div>

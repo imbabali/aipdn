@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
-import { FileText, Download, Calendar } from "lucide-react";
+import { FileText, Calendar } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 // Current publications (static data)
-const PLACEHOLDER_PUBLICATIONS = [
+const PUBLICATIONS = [
   {
     id: "1",
     title: "Rethinking Inter-Party Dialogue and Consensus Building",
@@ -57,7 +57,7 @@ export default function PublicationsPage() {
 
       <Section>
         <div className="space-y-6">
-          {PLACEHOLDER_PUBLICATIONS.map((pub) => (
+          {PUBLICATIONS.map((pub) => (
             <div
               key={pub.id}
               className="flex flex-col gap-6 rounded-2xl border border-border bg-background p-5 sm:p-8 transition-all hover:border-green-200 hover:shadow-lg md:flex-row"
@@ -86,10 +86,9 @@ export default function PublicationsPage() {
                 </p>
               </div>
               <div className="flex shrink-0 items-start">
-                <button className="inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-5 py-2.5 text-sm font-semibold text-green-700 transition-colors hover:bg-green-100">
-                  <Download className="h-4 w-4" />
-                  Download
-                </button>
+                <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-medium text-muted-foreground">
+                  Coming Soon
+                </span>
               </div>
             </div>
           ))}

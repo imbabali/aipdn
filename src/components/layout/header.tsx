@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -15,6 +15,25 @@ export function Header() {
 
   const isActive = (href: string) =>
     pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
+  // Close mobile menu on Escape
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileOpen) setMobileOpen(false);
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [mobileOpen]);
 
   return (
     <header className="sticky top-0 z-50 w-full">
@@ -101,6 +120,27 @@ export function Header() {
                         ? "text-green-700 bg-green-50"
                         : "text-neutral-700 hover:text-green-700 hover:bg-green-50/50"
                     )}
+                    onFocus={() =>
+                      hasChildren && setOpenDropdown(item.label)
+                    }
+                    onKeyDown={(e) => {
+                      if (!hasChildren) return;
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setOpenDropdown(
+                          openDropdown === item.label ? null : item.label
+                        );
+                      }
+                      if (e.key === "Escape") {
+                        setOpenDropdown(null);
+                      }
+                    }}
+                    aria-expanded={
+                      hasChildren
+                        ? openDropdown === item.label
+                        : undefined
+                    }
+                    aria-haspopup={hasChildren ? "true" : undefined}
                   >
                     {item.label}
                     {hasChildren && (
@@ -113,7 +153,14 @@ export function Header() {
                     )}
                   </Link>
                   {hasChildren && openDropdown === item.label && (
-                    <div className="absolute left-0 top-full z-50 mt-0 w-56 rounded-xl border border-border bg-background p-2 shadow-lg">
+                    <div
+                      className="absolute left-0 top-full z-50 mt-0 w-56 rounded-xl border border-border bg-background p-2 shadow-lg"
+                      onBlur={(e) => {
+                        if (!e.currentTarget.contains(e.relatedTarget)) {
+                          setOpenDropdown(null);
+                        }
+                      }}
+                    >
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
@@ -124,6 +171,11 @@ export function Header() {
                               ? "text-green-700 bg-green-50"
                               : "text-neutral-600 hover:text-green-700 hover:bg-green-50/50"
                           )}
+                          onKeyDown={(e) => {
+                            if (e.key === "Escape") {
+                              setOpenDropdown(null);
+                            }
+                          }}
                         >
                           {child.label}
                         </Link>
@@ -166,7 +218,7 @@ export function Header() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="border-t border-border bg-background px-6 pb-6 pt-4 lg:hidden">
+          <div className="border-t border-border bg-background px-6 pb-6 pt-4 lg:hidden max-h-[calc(100vh-80px)] overflow-y-auto">
             <div className="space-y-1">
               {NAV_ITEMS.map((item) => {
                 const hasChildren = "children" in item && item.children;

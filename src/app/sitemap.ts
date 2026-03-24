@@ -23,11 +23,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/get-involved/newsletter",
     "/get-involved/contact",
     "/donate",
+    "/privacy-policy",
   ];
 
   const pillarPages = PILLARS.map((pillar) => `/what-we-do/${pillar.slug}`);
 
-  const allPages = [...staticPages, ...pillarPages];
+  const newsSlugs = [
+    "/news/mou-ips-aipdn",
+    "/news/rethinking-inter-party-dialogue",
+    "/news/ppi-africa-partnership",
+  ];
+
+  const allPages = [...staticPages, ...pillarPages, ...newsSlugs];
 
   return allPages.map((path) => ({
     url: `${SITE_URL}${path}`,

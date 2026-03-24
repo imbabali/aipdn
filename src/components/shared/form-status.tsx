@@ -8,7 +8,7 @@ export function FormStatus({ state }: { state: FormState }) {
 
   return (
     <div
-      role="alert"
+      role={state.success ? "status" : "alert"}
       className={`flex items-start gap-3 rounded-xl p-4 text-sm ${
         state.success
           ? "bg-green-50 text-green-800 border border-green-200"

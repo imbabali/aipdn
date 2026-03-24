@@ -11,6 +11,11 @@ export async function submitContactForm(
   _prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
+  // Honeypot spam check
+  if (formData.get("website")) {
+    return { success: true, message: "Thank you for your message. We will get back to you soon." };
+  }
+
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
   const subject = formData.get("subject") as string;
@@ -47,6 +52,11 @@ export async function submitJoinForm(
   _prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
+  // Honeypot spam check
+  if (formData.get("website")) {
+    return { success: true, message: "Thank you for your interest in joining AIPDN. We will review your application and respond shortly." };
+  }
+
   const organizationName = formData.get("org-name") as string;
   const organizationType = formData.get("org-type") as string;
   const contactName = formData.get("contact-name") as string;
@@ -93,6 +103,11 @@ export async function submitNewsletter(
   _prevState: FormState,
   formData: FormData
 ): Promise<FormState> {
+  // Honeypot spam check
+  if (formData.get("website")) {
+    return { success: true, message: "You have been subscribed to our newsletter. Welcome!" };
+  }
+
   const email = formData.get("email") as string;
   const name = (formData.get("name") as string) || null;
 

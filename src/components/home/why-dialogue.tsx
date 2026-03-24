@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Section } from "@/components/shared/section";
 
@@ -14,14 +14,12 @@ const reasons = [
 ];
 
 export function WhyDialogue() {
+  const prefersReducedMotion = useReducedMotion();
   return (
     <Section className="bg-muted">
       <div className="grid items-center gap-8 lg:gap-12 lg:grid-cols-2">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          {...(prefersReducedMotion ? {} : { initial: { opacity: 0, x: -20 }, whileInView: { opacity: 1, x: 0 }, viewport: { once: true }, transition: { duration: 0.5 } })}
         >
           <span className="inline-block rounded-full bg-teal-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-teal-700">
             Why It Matters
@@ -43,10 +41,7 @@ export function WhyDialogue() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          {...(prefersReducedMotion ? {} : { initial: { opacity: 0, x: 20 }, whileInView: { opacity: 1, x: 0 }, viewport: { once: true }, transition: { duration: 0.5, delay: 0.2 } })}
           className="space-y-4"
         >
           {reasons.map((reason, i) => (

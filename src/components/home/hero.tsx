@@ -54,6 +54,7 @@ export function Hero() {
             fill
             className="object-cover"
             style={{ objectPosition: "center 60%" }}
+            sizes="100vw"
             priority={current === 0}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 via-green-900/70 to-green-900/40" />
@@ -131,7 +132,7 @@ export function Hero() {
               onClick={() => setCurrent(i)}
               className={`h-3 rounded-full transition-all ${
                 i === current ? "w-8 bg-white" : "w-3 bg-white/40"
-              }`}
+              } p-3 bg-clip-content`}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}

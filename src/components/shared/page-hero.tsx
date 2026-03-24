@@ -36,6 +36,7 @@ export function PageHero({
             fill
             className="object-cover"
             style={{ objectPosition: imagePosition }}
+            sizes="100vw"
             priority
             aria-hidden="true"
           />

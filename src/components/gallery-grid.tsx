@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -46,6 +46,7 @@ const ITEMS_PER_PAGE = 24;
 export function GalleryGrid() {
   const [page, setPage] = useState(0);
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const touchStart = useRef<number | null>(null);
 
   const totalPages = Math.ceil(GALLERY_IMAGES.length / ITEMS_PER_PAGE);
   const currentImages = GALLERY_IMAGES.slice(
@@ -94,7 +95,6 @@ export function GalleryGrid() {
 
       <div
         className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-        role="list"
         aria-label="Photo gallery"
       >
         {currentImages.map((img, i) => {
@@ -102,7 +102,6 @@ export function GalleryGrid() {
           return (
             <button
               key={img}
-              role="listitem"
               onClick={() => setLightbox(globalIndex)}
               className="group relative aspect-square overflow-hidden rounded-xl bg-neutral-100 cursor-pointer focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
               aria-label={`View photo ${globalIndex + 1} of ${GALLERY_IMAGES.length}`}
@@ -151,10 +150,20 @@ export function GalleryGrid() {
           role="dialog"
           aria-modal="true"
           aria-label="Photo viewer"
+          onTouchStart={(e) => { touchStart.current = e.touches[0].clientX; }}
+          onTouchEnd={(e) => {
+            if (touchStart.current === null) return;
+            const diff = touchStart.current - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) {
+              if (diff > 0) setLightbox((lightbox + 1) % GALLERY_IMAGES.length);
+              else setLightbox((lightbox - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
+            }
+            touchStart.current = null;
+          }}
         >
           <button
             onClick={() => setLightbox(null)}
-            className="absolute top-4 right-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white"
+            className="absolute top-[max(1rem,env(safe-area-inset-top,1rem))] right-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Close photo viewer"
           >
             <X className="h-6 w-6" />

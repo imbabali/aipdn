@@ -6,6 +6,7 @@ import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
 import { Calendar, User, ArrowLeft } from "lucide-react";
 import { formatDate } from "@/lib/utils";
+import { SITE_URL, SITE_FULL_NAME } from "@/lib/constants";
 
 const ARTICLES: Record<
   string,
@@ -91,6 +92,9 @@ export async function generateMetadata({
   return {
     title: article.title,
     description: article.excerpt,
+    openGraph: {
+      images: [{ url: article.image, alt: article.title }],
+    },
   };
 }
 
@@ -103,8 +107,23 @@ export default async function NewsArticlePage({
   const article = ARTICLES[slug];
   if (!article) notFound();
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt,
+    image: `${SITE_URL}${article.image}`,
+    datePublished: article.published_at,
+    author: { "@type": "Organization", name: SITE_FULL_NAME },
+    publisher: { "@type": "Organization", name: SITE_FULL_NAME, logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo/logo.png` } },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <PageHero
         title={article.title}
         backgroundImage={article.image}
@@ -140,6 +159,7 @@ export default async function NewsArticlePage({
               fill
               className="object-cover"
               style={{ objectPosition: article.imagePosition }}
+              sizes="(max-width: 768px) 100vw, 768px"
               priority
             />
           </div>

@@ -72,6 +72,7 @@ export default function EventsPage() {
                     alt={event.title}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 288px"
                   />
                 </div>
                 <div className="flex-1">
@@ -121,6 +122,7 @@ export default function EventsPage() {
                   fill
                   className="object-cover"
                   style={{ objectPosition: event.imagePosition }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="p-6">

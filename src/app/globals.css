@@ -55,22 +55,6 @@
   --accent-foreground: var(--neutral-950);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--neutral-950);
-    --foreground: var(--neutral-100);
-    --muted: var(--neutral-900);
-    --muted-foreground: var(--neutral-400);
-    --border: var(--neutral-800);
-    --ring: var(--green-400);
-    --primary: var(--green-400);
-    --primary-foreground: var(--neutral-950);
-    --secondary: var(--teal-400);
-    --secondary-foreground: var(--neutral-950);
-    --accent: var(--gold-400);
-    --accent-foreground: var(--neutral-950);
-  }
-}
 
 @theme inline {
   --color-background: var(--background);

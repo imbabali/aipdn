@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function CTA() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-green-800 via-green-700 to-teal-600 py-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-green-800 via-green-700 to-teal-600 py-16 md:py-24">
       <div className="absolute inset-0 opacity-[0.07]">
         <div
           className="h-full w-full"

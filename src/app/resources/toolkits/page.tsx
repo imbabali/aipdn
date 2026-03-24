@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
-import { BookMarked, Download } from "lucide-react";
+import { BookMarked } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Toolkits & Guides",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "Practical toolkits and guides for practitioners facilitating inter-party dialogue across Africa.",
 };
 
-const PLACEHOLDER_TOOLKITS = [
+const TOOLKITS = [
   {
     id: "1",
     title: "Inter-Party Dialogue Facilitator's Handbook",
@@ -46,7 +46,7 @@ export default function ToolkitsPage() {
 
       <Section>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {PLACEHOLDER_TOOLKITS.map((toolkit) => (
+          {TOOLKITS.map((toolkit) => (
             <div
               key={toolkit.id}
               className="flex flex-col rounded-2xl border border-border bg-background p-5 sm:p-8 transition-all hover:border-green-200 hover:shadow-lg"
@@ -60,10 +60,9 @@ export default function ToolkitsPage() {
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {toolkit.description}
               </p>
-              <button className="mt-6 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-5 py-2.5 text-sm font-semibold text-teal-700 transition-colors hover:bg-teal-100 self-start">
-                <Download className="h-4 w-4" />
-                Download Guide
-              </button>
+              <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-5 py-2.5 text-sm font-medium text-muted-foreground self-start">
+                Coming Soon
+              </span>
             </div>
           ))}
         </div>

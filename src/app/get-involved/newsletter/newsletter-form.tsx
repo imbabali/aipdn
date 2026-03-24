@@ -13,6 +13,7 @@ export function NewsletterForm() {
   return (
     <form action={formAction} className="mt-8 space-y-5">
       <FormStatus state={state} />
+      <input type="text" name="website" className="absolute -left-[9999px]" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div>
         <label htmlFor="nl-name" className="block text-sm font-medium text-foreground">
           Name (optional)

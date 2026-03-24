@@ -71,7 +71,7 @@ export function Footer() {
                 placeholder="Enter your email"
                 required
                 autoComplete="email"
-                className="flex-1 rounded-full bg-white/10 px-5 py-3 text-sm text-white placeholder:text-white/50 border border-white/20 focus:border-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-400/30"
+                className="flex-1 rounded-full bg-white/10 px-5 py-3 text-base sm:text-sm text-white placeholder:text-white/50 border border-white/20 focus:border-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-400/30"
               />
               <button
                 type="submit"
@@ -159,7 +159,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 sm:px-6 py-6 text-xs text-white/50 sm:flex-row sm:justify-between">
-          <p>&copy; {currentYear} {SITE_FULL_NAME}. All rights reserved.</p>
+          <p>&copy; {currentYear} {SITE_FULL_NAME}. All rights reserved. <Link href="/privacy-policy" className="underline hover:text-white">Privacy Policy</Link></p>
           <div className="flex items-center gap-6">
             {Object.entries(SOCIAL_LINKS).map(([platform, url]) => (
               <a

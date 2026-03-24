@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { DonateBanner } from "@/components/layout/donate-banner";
 import { WhatsAppBubble } from "@/components/whatsapp-bubble";
+import { CookieConsent } from "@/components/cookie-consent";
 import { SITE_FULL_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
@@ -37,11 +38,23 @@ export const metadata: Metadata = {
     siteName: SITE_FULL_NAME,
     title: SITE_FULL_NAME,
     description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: `${SITE_URL}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: SITE_FULL_NAME,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_FULL_NAME,
     description: SITE_DESCRIPTION,
+    images: [`${SITE_URL}/images/og-image.jpg`],
+  },
+  alternates: {
+    canonical: SITE_URL,
   },
   robots: {
     index: true,
@@ -70,6 +83,7 @@ export default function RootLayout({
         <DonateBanner />
         <Footer />
         <WhatsAppBubble />
+        <CookieConsent />
       </body>
     </html>
   );
