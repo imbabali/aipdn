@@ -71,7 +71,7 @@ export default function PublicationsPage() {
                     {pub.category}
                   </span>
                   <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Calendar className="h-3 w-3" />
+                    <Calendar className="h-3 w-3" aria-hidden="true" />
                     {formatDate(pub.published_date)}
                   </span>
                 </div>

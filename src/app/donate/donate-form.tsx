@@ -35,7 +35,7 @@ export function DonateForm() {
 
   if (step === "confirm") {
     return (
-      <div className="space-y-6">
+      <div className="space-y-6" role="status" aria-live="polite">
         <div className="rounded-xl bg-green-50 border border-green-200 p-5 sm:p-6 text-center">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
             <Heart className="h-8 w-8 text-green-700" />
@@ -100,14 +100,16 @@ export function DonateForm() {
   return (
     <div className="space-y-6">
       {/* Amount selection */}
-      <div>
-        <label className="block text-sm font-medium text-foreground mb-3">
+      <fieldset>
+        <legend className="block text-sm font-medium text-foreground mb-3">
           Select Amount (KES)
-        </label>
+        </legend>
         <div className="grid grid-cols-3 gap-2 sm:gap-3">
           {PRESET_AMOUNTS.map((preset) => (
             <button
               key={preset}
+              type="button"
+              aria-pressed={amount === preset}
               onClick={() => {
                 setAmount(preset);
                 setCustomAmount("");
@@ -118,11 +120,11 @@ export function DonateForm() {
                   : "border-border bg-background text-foreground hover:border-green-300 hover:bg-green-50"
               }`}
             >
-              {preset.toLocaleString()}
+              KES {preset.toLocaleString()}
             </button>
           ))}
         </div>
-      </div>
+      </fieldset>
 
       {/* Custom amount */}
       <div>

@@ -27,7 +27,7 @@ const pillarImages: Record<string, { src: string; position: string }> = {
   },
   partnerships: {
     src: "/images/gallery/AIPDN-PARTNERSHIP-4.jpg",
-    position: "center 40%",
+    position: "center 25%",
   },
   "regional-convening": {
     src: "/images/gallery/Img-250.jpg",

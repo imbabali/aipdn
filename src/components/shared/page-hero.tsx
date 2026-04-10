@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface PageHeroProps {
@@ -63,20 +64,20 @@ export function PageHero({
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex items-center gap-2 text-sm text-white/60">
               <li>
-                <a href="/" className="hover:text-white transition-colors">
+                <Link href="/" className="hover:text-white transition-colors">
                   Home
-                </a>
+                </Link>
               </li>
               {breadcrumbs.map((crumb, i) => (
                 <li key={i} className="flex items-center gap-2">
                   <span aria-hidden="true">/</span>
                   {crumb.href ? (
-                    <a
+                    <Link
                       href={crumb.href}
                       className="hover:text-white transition-colors"
                     >
                       {crumb.label}
-                    </a>
+                    </Link>
                   ) : (
                     <span className="text-white/90" aria-current="page">
                       {crumb.label}

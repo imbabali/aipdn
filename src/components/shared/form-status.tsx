@@ -9,6 +9,7 @@ export function FormStatus({ state }: { state: FormState }) {
   return (
     <div
       role={state.success ? "status" : "alert"}
+      aria-live={state.success ? "polite" : "assertive"}
       className={`flex items-start gap-3 rounded-xl p-4 text-sm ${
         state.success
           ? "bg-green-50 text-green-800 border border-green-200"
@@ -16,11 +17,11 @@ export function FormStatus({ state }: { state: FormState }) {
       }`}
     >
       {state.success ? (
-        <CheckCircle className="h-5 w-5 shrink-0 mt-0.5" />
+        <CheckCircle className="h-5 w-5 shrink-0 mt-0.5" aria-hidden="true" />
       ) : (
-        <AlertCircle className="h-5 w-5 shrink-0 mt-0.5" />
+        <AlertCircle className="h-5 w-5 shrink-0 mt-0.5" aria-hidden="true" />
       )}
-      <p>{state.message}</p>
+      <p id="form-status-message">{state.message}</p>
     </div>
   );
 }

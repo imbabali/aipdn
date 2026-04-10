@@ -21,7 +21,7 @@ const pillarImages: Record<string, { src: string; position: string }> = {
   },
   partnerships: {
     src: "/images/gallery/AIPDN-PARTNERSHIP-4.jpg",
-    position: "center 40%",
+    position: "center 25%",
   },
   "regional-convening": {
     src: "/images/gallery/Img-250.jpg",
@@ -42,13 +42,16 @@ export function PillarsCarousel() {
       />
 
       <div className="mt-12 sm:mt-16 overflow-hidden">
-        <div className="flex animate-scroll gap-5 sm:gap-6 hover:[animation-play-state:paused]">
+        <div className="flex animate-scroll gap-5 sm:gap-6 hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]">
           {items.map((pillar, i) => {
             const image = pillarImages[pillar.slug];
+            const isDuplicate = i >= PILLARS.length;
             return (
               <Link
                 key={`${pillar.slug}-${i}`}
                 href={`/what-we-do/${pillar.slug}`}
+                aria-hidden={isDuplicate || undefined}
+                tabIndex={isDuplicate ? -1 : undefined}
                 className="group flex w-[280px] sm:w-[320px] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-background transition-all hover:border-green-200 hover:shadow-lg"
               >
                 {/* Image */}
@@ -76,7 +79,7 @@ export function PillarsCarousel() {
                   </p>
                   <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-green-700">
                     Learn more
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </div>
                 </div>
               </Link>

@@ -47,6 +47,8 @@ export function GalleryGrid() {
   const [page, setPage] = useState(0);
   const [lightbox, setLightbox] = useState<number | null>(null);
   const touchStart = useRef<number | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const totalPages = Math.ceil(GALLERY_IMAGES.length / ITEMS_PER_PAGE);
   const currentImages = GALLERY_IMAGES.slice(
@@ -73,6 +75,33 @@ export function GalleryGrid() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
+  // Focus management and trap for lightbox
+  useEffect(() => {
+    if (lightbox !== null) {
+      closeButtonRef.current?.focus();
+    }
+  }, [lightbox]);
+
+  useEffect(() => {
+    if (lightbox === null || !dialogRef.current) return;
+    const dialog = dialogRef.current;
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const focusable = dialog.querySelectorAll<HTMLElement>("button");
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    dialog.addEventListener("keydown", handleTab);
+    return () => dialog.removeEventListener("keydown", handleTab);
+  }, [lightbox]);
+
   // Prevent body scroll when lightbox is open
   useEffect(() => {
     if (lightbox !== null) {
@@ -95,6 +124,7 @@ export function GalleryGrid() {
 
       <div
         className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        role="region"
         aria-label="Photo gallery"
       >
         {currentImages.map((img, i) => {
@@ -146,6 +176,7 @@ export function GalleryGrid() {
       {/* Lightbox */}
       {lightbox !== null && (
         <div
+          ref={dialogRef}
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
           role="dialog"
           aria-modal="true"
@@ -162,6 +193,7 @@ export function GalleryGrid() {
           }}
         >
           <button
+            ref={closeButtonRef}
             onClick={() => setLightbox(null)}
             className="absolute top-[max(1rem,env(safe-area-inset-top,1rem))] right-4 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Close photo viewer"

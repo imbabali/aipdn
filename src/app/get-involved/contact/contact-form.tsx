@@ -11,7 +11,7 @@ export function ContactForm() {
   );
 
   return (
-    <form action={formAction} className="mt-8 space-y-6">
+    <form action={formAction} className="mt-8 space-y-6" aria-describedby={state ? "form-status-message" : undefined} noValidate>
       <FormStatus state={state} />
       <input type="text" name="website" className="absolute -left-[9999px]" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <div className="grid gap-6 sm:grid-cols-2">

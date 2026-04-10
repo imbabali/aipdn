@@ -5,7 +5,6 @@ import {
   SITE_FULL_NAME,
   CONTACT,
   SOCIAL_LINKS,
-  NAV_ITEMS,
 } from "@/lib/constants";
 
 const footerLinks = [
@@ -48,9 +47,9 @@ export function Footer() {
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
             <div className="flex-1">
-              <h3 className="font-heading text-2xl font-bold">
+              <h2 className="font-heading text-2xl font-bold">
                 Stay Connected
-              </h3>
+              </h2>
               <p className="mt-2 text-white/70">
                 Subscribe to our newsletter for updates on inter-party dialogue
                 across Africa.
@@ -136,9 +135,9 @@ export function Footer() {
           {/* Link columns */}
           {footerLinks.map((group) => (
             <div key={group.title}>
-              <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-white/90">
+              <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-white/90">
                 {group.title}
-              </h4>
+              </h3>
               <ul className="mt-4 space-y-3">
                 {group.links.map((link) => (
                   <li key={link.href}>
@@ -174,6 +173,15 @@ export function Footer() {
               </a>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Designer credit */}
+      <div className="border-t border-white/5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-3 text-center">
+          <p className="text-[11px] text-white/30">
+            Designed by IM Advisory
+          </p>
         </div>
       </div>
     </footer>

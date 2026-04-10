@@ -28,8 +28,13 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   icons: {
-    icon: "/images/logo/logo.png",
-    apple: "/images/logo/logo.png",
+    icon: [
+      { url: "/images/logo/favicon.ico", sizes: "48x48" },
+      { url: "/images/logo/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/logo/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/logo/favicon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/images/logo/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",

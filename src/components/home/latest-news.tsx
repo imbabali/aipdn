@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Calendar } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Section, SectionHeader } from "@/components/shared/section";
 import { formatDate } from "@/lib/utils";
 
@@ -17,7 +17,7 @@ const NEWS_ARTICLES = [
     published_at: "2026-02-18",
     slug: "mou-ips-aipdn",
     image: "/images/news/mou-ips.jpg",
-    imagePosition: "center 35%",
+    imagePosition: "center 25%",
   },
   {
     id: "2",
@@ -28,7 +28,7 @@ const NEWS_ARTICLES = [
     published_at: "2025-12-19",
     slug: "rethinking-inter-party-dialogue",
     image: "/images/news/roundtable-2025.jpg",
-    imagePosition: "center 70%",
+    imagePosition: "center 55%",
   },
   {
     id: "3",
@@ -44,6 +44,7 @@ const NEWS_ARTICLES = [
 ];
 
 export function LatestNews() {
+  const prefersReducedMotion = useReducedMotion();
   return (
     <Section>
       <SectionHeader
@@ -55,10 +56,7 @@ export function LatestNews() {
         {NEWS_ARTICLES.map((article, i) => (
           <motion.article
             key={article.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
+            {...(prefersReducedMotion ? {} : { initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true, margin: "-50px" }, transition: { duration: 0.4, delay: i * 0.1 } })}
             className="group"
           >
             <Link
@@ -68,7 +66,7 @@ export function LatestNews() {
               <div className="relative aspect-[16/10] overflow-hidden bg-green-50">
                 <Image
                   src={article.image}
-                  alt={article.title}
+                  alt=""
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                   style={{ objectPosition: article.imagePosition }}
@@ -81,7 +79,7 @@ export function LatestNews() {
                     {article.category}
                   </span>
                   <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Calendar className="h-3 w-3" />
+                    <Calendar className="h-3 w-3" aria-hidden="true" />
                     {formatDate(article.published_at)}
                   </span>
                 </div>
@@ -93,7 +91,7 @@ export function LatestNews() {
                 </p>
                 <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-green-700">
                   Read more
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </div>
               </div>
             </Link>
@@ -106,7 +104,7 @@ export function LatestNews() {
           className="inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-6 py-3 text-sm font-semibold text-green-700 transition-all hover:bg-green-100"
         >
           View All News
-          <ArrowRight className="h-4 w-4" />
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       </div>
     </Section>

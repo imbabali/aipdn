@@ -45,14 +45,14 @@ export function Header() {
               href={`mailto:${CONTACT.email}`}
               className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
-              <Mail className="h-3.5 w-3.5" />
+              <Mail className="h-3.5 w-3.5" aria-hidden="true" />
               {CONTACT.email}
             </a>
             <a
               href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
               className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
-              <Phone className="h-3.5 w-3.5" />
+              <Phone className="h-3.5 w-3.5" aria-hidden="true" />
               {CONTACT.phone}
             </a>
           </div>
@@ -141,6 +141,7 @@ export function Header() {
                         : undefined
                     }
                     aria-haspopup={hasChildren ? "true" : undefined}
+                    aria-current={isActive(item.href) ? "page" : undefined}
                   >
                     {item.label}
                     {hasChildren && (
@@ -176,6 +177,7 @@ export function Header() {
                               setOpenDropdown(null);
                             }
                           }}
+                          aria-current={isActive(child.href) ? "page" : undefined}
                         >
                           {child.label}
                         </Link>
@@ -234,6 +236,7 @@ export function Header() {
                             ? "text-green-700 bg-green-50"
                             : "text-neutral-700 hover:bg-neutral-50"
                         )}
+                        aria-current={isActive(item.href) ? "page" : undefined}
                       >
                         {item.label}
                       </Link>
@@ -244,8 +247,9 @@ export function Header() {
                               openDropdown === item.label ? null : item.label
                             )
                           }
-                          className="rounded-lg p-2 hover:bg-neutral-50"
+                          className="rounded-lg p-2.5 hover:bg-neutral-50"
                           aria-label={`Expand ${item.label} submenu`}
+                          aria-expanded={openDropdown === item.label}
                         >
                           <ChevronDown
                             className={cn(
@@ -269,6 +273,7 @@ export function Header() {
                                 ? "text-green-700 bg-green-50"
                                 : "text-neutral-600 hover:text-green-700 hover:bg-green-50/50"
                             )}
+                            aria-current={isActive(child.href) ? "page" : undefined}
                           >
                             {child.label}
                           </Link>

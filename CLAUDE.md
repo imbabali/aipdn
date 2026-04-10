@@ -49,7 +49,7 @@ src/
 │   ├── get-involved/       # Join, Newsletter, Contact (each with client form component)
 │   └── donate/             # M-Pesa donation flow with WhatsApp confirmation
 ├── components/
-│   ├── layout/             # Header, Footer, DonateBanner
+│   ├── layout/             # Header, Footer (incl. "Designed by IM Advisory" credit), DonateBanner
 │   ├── home/               # Hero, PillarsCarousel, WhyDialogue, LatestNews, PartnersStrip, CTA
 │   ├── shared/             # Section, SectionHeader, PageHero, FormStatus
 │   ├── gallery-grid.tsx    # Client-side gallery with lightbox + keyboard nav
@@ -60,7 +60,7 @@ src/
 │   └── supabase/           # client.ts (browser), server.ts (SSR), types.ts (9 tables)
 public/
 └── images/
-    ├── logo/               # logo.png (1024x1024 from PDF source)
+    ├── logo/               # logo.png (1024x1024), favicon-16.png, favicon-32.png, apple-touch-icon.png
     ├── team/               # 5 team member photos (768x768)
     ├── partners/           # 19 partner logos (including WANEP, IPS, CMD placeholders)
     ├── news/               # 3 article images
@@ -111,6 +111,21 @@ All three forms are wired to Supabase and live:
 - Next.js `<Image>` with `fill` + `priority` on heroes, `sizes` on grids
 - AVIF + WebP formats enabled in next.config.ts
 - Logo extracted from PDF source at 1024px resolution
+- Favicon: generated from logo at 16px, 32px; apple-touch-icon at 180px
+
+### Accessibility (WCAG 2.2 AA)
+- Skip-to-content link in root layout
+- `lang="en"` on `<html>`, semantic landmarks (`<main>`, `<nav>`, `<footer>`)
+- All Lucide icons use `aria-hidden="true"` (decorative)
+- `aria-current="page"` on active nav links (desktop + mobile)
+- `aria-expanded` on all toggle buttons (dropdowns, mobile menu, submenus)
+- Hero carousel: `role="tablist"` + `role="tab"` indicators, `aria-selected`, `aria-current`
+- Forms: `aria-live` on status messages, `aria-describedby` linking forms to error output
+- Gallery lightbox: `role="dialog"`, `aria-modal`, keyboard nav, focus trap
+- Framer Motion: `useReducedMotion()` in hero, latest-news, why-dialogue components
+- CSS `.animate-scroll`: respects `prefers-reduced-motion`
+- Touch targets: min 44x44px on all interactive controls
+- Decorative images use `alt=""`; decorative text uses `aria-hidden="true"`
 
 ### Donate Flow (M-Pesa)
 - Linked to phone number 0741694575
@@ -151,6 +166,15 @@ Then clean up extra Vercel URLs, keeping only aipdn.org.
 ## Collaborators
 - **imbabali** (owner)
 - **tonmag006** (admin)
+
+## Completed Work
+- [x] WCAG 2.2 AA accessibility audit and fixes (2026-03-25)
+- [x] Favicon replaced with AIPDN logo (16px, 32px, 180px apple-touch-icon) (2026-03-26)
+- [x] "Designed by IM Advisory" credit added to footer bottom bar (2026-03-26)
+- [x] Service agreement drafted and finalised (2026-03-26)
+- [x] Optical centering audit: adjusted objectPosition on 6 images across 6 files (2026-04-03)
+- [x] Favicon regenerated: tight crop (Africa icon + AIPDN text) for 16/32px, full logo for 180/192px, added .ico multi-size (2026-04-03)
+- [x] Bug fix: added missing objectPosition to upcoming events Image component in events/page.tsx (2026-04-03)
 
 ## Pending Work
 - [ ] Change nameservers at NameSilo to Vercel (ns1/ns2.vercel-dns.com)

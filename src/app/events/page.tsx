@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
-import { Calendar, MapPin, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { Calendar, MapPin } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -24,7 +23,7 @@ const EVENTS = [
     end_date: "2026-01-30",
     status: "past" as string,
     image: "/images/events/west-africa-training.jpg",
-    imagePosition: "center 55%",
+    imagePosition: "center 45%",
   },
   {
     id: "2",
@@ -37,7 +36,7 @@ const EVENTS = [
     end_date: "2025-12-03",
     status: "past" as string,
     image: "/images/events/roundtable-parties.jpg",
-    imagePosition: "center 65%",
+    imagePosition: "center 50%",
   },
 ];
 
@@ -72,6 +71,7 @@ export default function EventsPage() {
                     alt={event.title}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: event.imagePosition }}
                     sizes="(max-width: 768px) 100vw, 288px"
                   />
                 </div>
@@ -87,13 +87,13 @@ export default function EventsPage() {
                   </p>
                   <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1.5">
-                      <Calendar className="h-4 w-4" />
+                      <Calendar className="h-4 w-4" aria-hidden="true" />
                       {formatDate(event.start_date)}
                       {event.end_date && ` to ${formatDate(event.end_date)}`}
                     </span>
                     {event.location && (
                       <span className="flex items-center gap-1.5">
-                        <MapPin className="h-4 w-4" />
+                        <MapPin className="h-4 w-4" aria-hidden="true" />
                         {event.location}
                       </span>
                     )}
@@ -137,13 +137,13 @@ export default function EventsPage() {
                 </p>
                 <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1">
-                    <Calendar className="h-3.5 w-3.5" />
+                    <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
                     {formatDate(event.start_date)}
                     {event.end_date && ` to ${formatDate(event.end_date)}`}
                   </span>
                   {event.location && (
                     <span className="flex items-center gap-1">
-                      <MapPin className="h-3.5 w-3.5" />
+                      <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
                       {event.location}
                     </span>
                   )}

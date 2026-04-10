@@ -21,7 +21,7 @@ export function WhatsAppBubble() {
           <div className="rounded-2xl rounded-br-sm bg-white px-4 py-3 shadow-lg border border-green-100 max-w-[180px] sm:max-w-[220px]">
             <button
               onClick={() => setTooltip(false)}
-              className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-neutral-200 text-neutral-500 hover:bg-neutral-300 transition-colors"
+              className="absolute -top-3 -right-3 flex h-7 w-7 items-center justify-center rounded-full bg-neutral-200 text-neutral-500 hover:bg-neutral-300 transition-colors"
               aria-label="Dismiss chat prompt"
             >
               <X className="h-3 w-3" />

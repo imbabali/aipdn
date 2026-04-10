@@ -23,7 +23,7 @@ const ARTICLES = [
     published_at: "2026-02-18",
     slug: "mou-ips-aipdn",
     image: "/images/news/mou-ips.jpg",
-    imagePosition: "center 35%",
+    imagePosition: "center 25%",
   },
   {
     id: "2",
@@ -35,7 +35,7 @@ const ARTICLES = [
     published_at: "2025-12-19",
     slug: "rethinking-inter-party-dialogue",
     image: "/images/news/roundtable-2025.jpg",
-    imagePosition: "center 70%",
+    imagePosition: "center 55%",
   },
   {
     id: "3",
@@ -86,7 +86,7 @@ export default function NewsPage() {
                 {featured.category}
               </span>
               <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                <Calendar className="h-3 w-3" />
+                <Calendar className="h-3 w-3" aria-hidden="true" />
                 {formatDate(featured.published_at)}
               </span>
             </div>
@@ -98,7 +98,7 @@ export default function NewsPage() {
             </p>
             <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-green-700">
               Read article
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </div>
           </div>
         </Link>
@@ -138,7 +138,7 @@ export default function NewsPage() {
                 </p>
                 <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-green-700">
                   Read more
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                 </div>
               </div>
             </Link>
