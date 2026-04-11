@@ -6,6 +6,7 @@
 Website for the **African Inter-Party Dialogue Network (AIPDN)**, a pan-African organization facilitating structured, inclusive dialogue among political parties to strengthen democracy, promote peace, and foster inclusive governance. Secretariat housed by Prospect Peace Institute, Africa (PPI-A) in Nairobi, Kenya.
 
 **Live site:** https://aipdn.vercel.app (pending DNS switch to aipdn.org)
+**Site status:** OFFLINE as of 2026-04-11 — `src/proxy.ts` returns a barebones 404 for every request. To restore, delete `src/proxy.ts` and push to `main`.
 **Repository:** https://github.com/imbabali/aipdn
 
 ## Tech Stack
@@ -58,6 +59,7 @@ src/
 │   ├── constants.ts        # Site config, contact, nav items, pillars, social links
 │   ├── utils.ts            # cn(), formatDate(), truncate()
 │   └── supabase/           # client.ts (browser), server.ts (SSR), types.ts (9 tables)
+└── proxy.ts                # SITE OFFLINE: returns barebones 404 for all routes (delete to restore)
 public/
 └── images/
     ├── logo/               # logo.png (1024x1024), favicon-16.png, favicon-32.png, apple-touch-icon.png
@@ -164,8 +166,7 @@ Then clean up extra Vercel URLs, keeping only aipdn.org.
 **Recommended:** Option A (keep NameSilo + Vercel free = ~$10/year total)
 
 ## Collaborators
-- **imbabali** (owner)
-- **tonmag006** (admin)
+- **imbabali** (owner) — solo (no other collaborators or pending invitations as of 2026-04-11)
 
 ## Completed Work
 - [x] WCAG 2.2 AA accessibility audit and fixes (2026-03-25)
@@ -175,8 +176,12 @@ Then clean up extra Vercel URLs, keeping only aipdn.org.
 - [x] Optical centering audit: adjusted objectPosition on 6 images across 6 files (2026-04-03)
 - [x] Favicon regenerated: tight crop (Africa icon + AIPDN text) for 16/32px, full logo for 180/192px, added .ico multi-size (2026-04-03)
 - [x] Bug fix: added missing objectPosition to upcoming events Image component in events/page.tsx (2026-04-03)
+- [x] Accumulated WCAG audit, favicon regeneration, optical centering work committed and pushed to main (commit dc7a37c, 2026-04-11)
+- [x] Site takedown: src/proxy.ts intercepts every route and returns a barebones 404 (commit d24471b, 2026-04-11)
+- [x] Cleared GitHub collaborators: deleted expired admin invitation to tonmag006 (never accepted, sent 2026-03-22), repo is now solo (2026-04-11)
 
 ## Pending Work
+- [ ] Bring site back online: delete `src/proxy.ts` and push to main (date TBD)
 - [ ] Change nameservers at NameSilo to Vercel (ns1/ns2.vercel-dns.com)
 - [ ] After DNS propagation: remove extra Vercel URLs, keep only aipdn.org
 - [ ] Add real logos for IPS and CMD Kenya (currently using text placeholders)
